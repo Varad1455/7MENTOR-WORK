@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website_Feedback</title>
+</head>
+<body>
+    <h2>Website Feedback</h2>
+  <form>
+
+    <!-- Name -->
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <!-- Email -->
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <!-- Rating -->
+    <label>Rate your experience:</label><br>
+    <input type="radio" name="rating" value="1"> 1 ★<br>
+    <input type="radio" name="rating" value="2"> 2 ★★<br>
+    <input type="radio" name="rating" value="3"> 3 ★★★<br>
+    <input type="radio" name="rating" value="4"> 4 ★★★★<br>
+    <input type="radio" name="rating" value="5"> 5 ★★★★★<br><br>
+
+    <!-- What did you like -->
+    <label>What did you like?</label><br>
+    <input type="checkbox" name="like" value="Content"> Content<br>
+    <input type="checkbox" name="like" value="Speed"> Speed<br>
+    <input type="checkbox" name="like" value="Design"> Design<br>
+    <input type="checkbox" name="like" value="Support"> Support<br><br>
+
+    <!-- Suggestions -->
+    <label for="suggestions">Suggestions:</label><br>
+    <textarea id="suggestions" name="suggestions" rows="4" cols="40"></textarea><br><br>
+
+    <!-- Buttons -->
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+  </form>
+
+</body>
+</html>
