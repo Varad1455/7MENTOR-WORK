@@ -1,37 +1,26 @@
+<!-- Create a login form with using inline CSS -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN_PAGE</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
+</head>
+<body style=" font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             color: #333;
             border: 1px solid #ccc;
             padding: 20px;
-            margin: 0;
-        }
-
-        h1 {
-            color: #3300ff;
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-
-    </style>
-</head>
-<body>
-    <h1>Login Page</h1>
-    <form action="/login" method="post">
+            margin: 0;">
+    <h1 style="color: #3300ff;font-family: 'Courier New', Courier, monospace;">Login Page</h1>
+    <form action="/login" method="post" style="background-color: #fff; padding: 20px; width: fit-content;">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
         <br>
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
         <br>
-        <button type="submit">Login</button>
+        <button type="submit" style="width: fit-content; background-color: #3300ff; color: #fff; padding: 10px 20px; border: none; cursor: pointer;">Login</button>
     </form> 
 </body>
 </html>
