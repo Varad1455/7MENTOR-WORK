@@ -1,43 +1,44 @@
-# 7MENTOR-WORK
-
-## 🚀 Overview
+# 🚀 7MENTOR-WORK
 
 Welcome to the **7MENTOR-WORK** repository!  
-This collection showcases all the projects, assignments, and mini-projects completed during the 7Mentor training program. Here, you'll find hands-on web development work, class exercises, and creative web page designs.
+This repo showcases all the **projects, assignments, and mini-projects** completed during the **7Mentor Web Development Training Program**. From structured websites to creative mini-projects, explore a journey of hands-on learning and web creativity.
 
 ---
 
-## 📚 Contents
+## 📂 Contents
 
-- **HTML Projects**
-  - 📰 News Website – Stay updated with the latest headlines.
-  - 🎓 Online Course Website – Learn new skills with interactive courses.
-  - 🌍 Travel Agency Website – Explore top destinations and book your trip.
+### 🧱 HTML Projects
+- 📰 **News Website** – Dynamic layout with headlines and categories.
+- 🎓 **Online Course Website** – Learn through interactive course pages.
+- 🌍 **Travel Agency Website** – Discover and plan your next trip.
 
-- **Class Assignments**
-  - 💡 Practical exercises from classroom sessions.
-  - 📝 Practice files for HTML, CSS, and JavaScript.
+### 📘 Class Assignments
+- 💡 Classroom-based HTML, CSS, and JavaScript tasks.
+- 📝 Practice files and concept reinforcement exercises.
 
-- **Mini Projects**
-  - 🖼️ Real-world web page designs.
-  - 🗂️ Registration forms, contact pages, galleries, and more.
+### 🧪 Mini Projects
+- 🖼️ Real-world templates and components.
+- 🗂️ Registration forms, contact pages, galleries, and more.
 
 ---
 
 ## 🛠️ How to Use
 
-1. **Clone or download** the repository.
-2. **Browse** the project folders to view assignments and projects.
-3. Each project contains its own set of HTML files and resources for easy exploration.
+1. **Clone** or **Download** the repository:
+   ```bash
+   git clone https://github.com/your-username/7MENTOR-WORK.git
+   ```
+2. Navigate to any project folder.
+3. Open the `.html` file in your browser to view.
 
 ---
 
-## 📁 Folder Structure
+## 🗃️ Folder Structure
 
-```
+\`\`\`
 7MENTOR-WORK/
 │
-├── HTML PROJECT'S/
+├── HTML_PROJECTS/
 │   ├── NEWS_WEBSITE/
 │   ├── ONLINE_COURSE_WEBSITE/
 │   └── TRAVEL_AGENCY_WEBSITE/
@@ -45,27 +46,48 @@ This collection showcases all the projects, assignments, and mini-projects compl
 ├── CLASS_ASSIGNMENTS/
 │   └── [Various practice files]
 │
+├── MINI_PROJECTS/
+│   └── [Real-world web components]
+│
 └── README.md
-```
-
----
-
-## 👨‍🏫 About
-
-This repository is maintained as part of the 7Mentor classroom activities.  
-It demonstrates progress, learning, and practical application of web development concepts.  
-Projects are designed to be **informative** and **engaging**, with creative layouts and interactive elements (where possible in HTML).
+\`\`\`
 
 ---
 
 ## ✨ Highlights
 
-- **Easy navigation** between projects.
-- **Clean and readable code** for learning and reference.
-- **Visually appealing designs** using only HTML (and some CSS in projects).
-- **Step-by-step progress** from basic exercises to complete websites.
+- ✅ **Beginner-friendly structure**
+- 🎨 **Creative and responsive layouts**
+- 🧠 **Code is clean and easy to learn from**
+- 📈 **Step-by-step growth from basics to real projects**
+- 🌟 **Great for reference and portfolio use**
 
 ---
 
-> **Explore, learn, and get inspired!**  
-> For any queries or feedback, feel free to reach out.
+## 📷 Screenshots (Optional)
+
+| Project Name | Preview |
+|--------------|---------|
+| News Website | ![](assets/news.png) |
+| Travel Site | ![](assets/travel.png) |
+
+---
+
+## 👨‍💻 About
+
+This repository is maintained as part of the **7Mentor classroom activities**.  
+It reflects the **progress, learning, and skill-building** achieved through structured lessons and creative implementation.
+
+---
+
+## 📞 Contact
+
+Feel free to reach out for feedback, collaboration, or questions:
+
+- **GitHub**: [MR-VARAD1455](https://github.com/MR-VARAD1455)
+- **Email**: argadevarad14@gmail.com
+
+---
+
+> _“Learning never exhausts the mind, it only fuels creativity.”_ 🔥  
+> **Explore, Learn, Build & Share!**
