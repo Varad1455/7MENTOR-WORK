@@ -1,0 +1,133 @@
+<!-- Create a professional "Meet Our Team" web page that introduces 3–4 team members, applying your knowledge of font styles, colors, CSS combinators, and layout -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <title>MEET_OUR-TEAM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background:url(https://png.pngtree.com/thumb_back/fh260/background/20231231/pngtree-geometric-poly-pattern-on-a-white-abstract-background-image_13896991.png) no-repeat center / 100% 100% ;
+            margin: 0;
+        }
+        .team-members {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px; /* Adds space between cards */
+        }
+        .team-members h2 {
+            color: #333333;
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 100%; /* Ensure heading takes full width if one is added */
+        }
+        .header-container{
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: rgba(255, 255, 255, 0.659);
+            padding: 50px 20px;
+            margin-bottom: 40px;
+            text-align: center;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .header-container h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .member {
+            background-color: #00000036;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.389);
+            width: 300px; /* A fixed width can be better for consistency */
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .member h3 {
+            margin-top: 10px;
+        }
+        .member p {
+            color: #555;
+        }
+        .bio {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+        .team-intro {
+            font-size: 1.1rem; /* Reset font size for readability */
+            color: #f0f0f0;
+            max-width: 700px; /* Constrain width for better reading */
+            margin: 15px auto 0; /* Center the text block and add space */
+            line-height: 1.5;
+            font-family: 'Roboto', sans-serif; /* Use a more readable font for the paragraph */
+        }
+        .contact-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 25px;
+            margin-top: 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .contact-btn:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+ </head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>MEET OUR TEAM</h1>
+            <p class="team-intro">We are a passionate group of creators, strategists, and developers dedicated to building exceptional digital experiences. Our collaborative spirit and diverse expertise allow us to tackle challenges with creativity and deliver outstanding results.</p>
+        </div>
+    </header>
+    <section class="team-members">
+        
+        <div class="member">
+            <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg" alt="Profile Picture">
+            <h3>KRUSHNA DEORE</h3>
+            <p>Project Lead & Strategist</p>
+            <div class="bio"><p>As our Project Lead, Krushna brings calm and decisive leadership to the team. With a strategic mindset, he ensures our projects are delivered on time and exceed expectations. His ability to mentor and motivate makes him the anchor of our operations.</p></div>
+            <a href="mailto:krushnadeore399@gmail.com" class="contact-btn">MAIL_ME</a>
+            <a href="tel:+988180119" class="contact-btn">CONTACT_ME</a>
+        </div>
+
+        <div class="member">
+            <img src="/TASK'S_DONE/HTML PROJECT'S/PERSONAL_PORTFOLIO/assets/images/V1455(CIRCLE CUT).png" alt="Profile Picture">
+            <h3>VARAD ARGADE</h3>
+            <p>Coder, Designer & Editor</p>
+            <div class="bio"><p>Varad is a multi-talented professional with a passion for both code and content. As a Coder & Designer, he builds beautiful, functional websites, and as an Editor, he ensures every word is precise and impactful. His unique blend of technical skill makes him a valuable asset.</p></div>
+            <a href="mailto:varad@example.com" class="contact-btn">MAIL_ME</a>
+             <a href="tel:+9604147312" class="contact-btn">CONTACT_ME</a>
+        </div>
+
+        <div class="member">
+            <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg" alt="Profile Picture">
+            <h3>SUJAY BOTE</h3>
+            <p>Marketing Director</p>
+            <div class="bio"><p>Sujay heads our marketing efforts, driving growth with innovative campaigns and a data-driven approach. He excels at identifying new opportunities and building strong client relationships. His leadership ensures our brand's message resonates powerfully in the marketplace.</p></div>
+            <a href="mailto:sujay@example.com" class="contact-btn">MAIL_ME</a>
+             <a href="tel:+1234567890" class="contact-btn">CONTACT_ME</a>
+        </div>
+    </section>
+</body>
+ </html>
