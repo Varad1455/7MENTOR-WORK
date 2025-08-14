@@ -1,0 +1,180 @@
+<!-- 
+ Create a simple "Sticky Note Reminder" web page where:
+The page has a header fixed at the top with the text "My Reminders".
+A sticky note box stays stuck at the top of the page once you scroll past it.
+An absolute-positioned button "Clear All" is placed at the bottom-right corner of the sticky note box.
+A relative-positioned container holds the sticky note box and some filler content to make the page scrollable
+ -->
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_18 - Sticky Note Reminder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f0f2f5;
+            /* Add padding-top to prevent content from being hidden by the fixed header */
+            padding-top: 60px; 
+        }
+
+        /* 1. A header fixed at the top */
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #4a90e2;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000; /* Ensure it's above other content */
+        }
+
+        /* 4. A relative-positioned container */
+        .main-container {
+            position: relative;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 2. A sticky note box */
+        .sticky-note {
+            position: sticky;
+            top: 0px; /* 60px (header) + 20px (gap) */
+            background-color: #ffeb3b; /* Classic sticky note yellow */
+            padding: 20px;
+            padding-bottom: 60px; /* Extra space at bottom so "Clear All" doesn't hide text */
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        /* Styling for the new input fields */
+        #note-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        #note-body {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            height: 150px; /* Default height */
+            min-height: 150px;
+            resize: vertical; /* Allow vertical resizing */
+            padding: 5px;
+        }
+
+        .note-input {
+            width: 100%;
+            border: none;
+            background-color: transparent;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        .note-input:focus {
+            outline: 2px dashed #4a90e2;
+            background-color: #fffde7; /* Slightly lighter yellow on focus */
+            border-radius: 3px;
+        }
+
+        /* 3. An absolute-positioned button */
+        .clear-btn {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .clear-btn:hover {
+            background-color: #c9302c;
+        }
+
+        /* Chat button styling */
+        .chat-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #2600ff; /* A vibrant blue */
+            color: white;
+            border: none;
+            border-radius: 50%; /* Circular button */
+            width: 60px;
+            height: 60px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 1001; /* Ensure it's above other elements */
+            transition: transform 0.2s ease-in-out;
+            /* Add flex to center the icon */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chat-btn:hover {
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+
+        .chat-btn img {
+            width: 35px; /* Control image size */
+            height: 35px;
+        }
+
+        /* Filler content styling */
+        .filler-content p {
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+    </style>
+ </head>
+ <body>
+    <!-- 1. Fixed Header -->
+    <header class="fixed-header">
+        My Reminders
+    </header>
+
+    <!-- 4. Relative Container -->
+    <div class="main-container">
+        <!-- 2. Sticky Note Box -->
+        <div class="sticky-note">
+            <input type="text" id="note-title" class="note-input" value="Important Tasks">
+            <textarea id="note-body" class="note-input"></textarea>
+            <!-- 3. Absolute-positioned Button -->
+            <button class="clear-btn">Clear All</button>
+        </div>
+
+        <!-- Filler content to make the page scrollable -->
+        <div class="filler-content">
+            <p>This interactive sticky note application is designed for simplicity and efficiency. The main note area is fully editable, allowing you to quickly jot down tasks, ideas, or reminders. The title can be customized with a single click, and the body of the note uses a flexible textarea that can be resized vertically to accommodate as much text as you need. The note itself remains visible at the top of your screen as you scroll, thanks to its 'sticky' positioning, ensuring your important reminders are always in view. A 'Clear All' button offers a quick way to reset the note, and a floating chat icon provides easy access to support. The entire interface is built to be intuitive, with a clean design that helps you focus on what matters most: your notes.</p>
+            <p>The fixed header at the top of the page, labeled 'My Reminders,' provides constant context and branding, staying put no matter how far you scroll. This is achieved using <code>position: fixed</code>, a fundamental CSS property for creating persistent UI elements. The main content area, which holds both the sticky note and this descriptive text, is wrapped in a container with <code>position: relative</code>. This is a crucial detail that allows the 'Clear All' button to be positioned absolutely within the confines of the sticky note itself, without affecting the layout of the rest of the page.</p>
+            <p>Styling plays a key role in the user experience. The classic yellow background of the sticky note, combined with a subtle box-shadow, gives it a tangible, real-world feel. Interactive elements provide visual feedback; input fields get a dashed outline on focus, and buttons change color or size on hover. This attention to detail makes the application not just functional but also pleasant to use. The responsive design ensures that the layout adapts gracefully to different screen sizes, although the primary focus here is on demonstrating CSS positioning techniques.</p>
+            <p>The chat button in the bottom-left corner is another example of fixed positioning. It remains accessible from anywhere on the page, offering a persistent call to action. It uses a circular shape, a friendly icon, and a hover effect to draw attention without being intrusive. All these components work together to create a cohesive and functional web page that effectively demonstrates key CSS concepts like <code>position: fixed</code>, <code>position: sticky</code>, <code>position: absolute</code>, and <code>position: relative</code> in a practical, real-world scenario.</p>
+        </div>
+    </div>
+
+    <!-- Floating Chat Button -->
+    <button class="chat-btn" aria-label="Open chat">
+        <img src="https://em-content.zobj.net/source/apple/419/speech-balloon_1f4ac.png" alt="Chat icon">
+    </button>
+ </body>
+ </html>
