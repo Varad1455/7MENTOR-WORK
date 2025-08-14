@@ -40,41 +40,38 @@ Give the chat icon's container a higher z-index than the rest of the page conten
             color: #333;
         }
 
-        /* Style for editable text */
-        [contenteditable="true"] {
-            cursor: text;
-            outline: 2px dashed transparent;
-            transition: outline 0.2s ease, background-color 0.2s ease;
+        /* New styles for input and textarea fields */
+        .form-field {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #cccccc00;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
         }
 
-        [contenteditable="true"]:focus {
-            outline: 2px dashed #007bff;
-            background-color: #f8f9fa;
+        .form-field:focus {
+            outline: none;
+            border-color: #007bff00;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
         }
 
+        .heading-input {
+            font-size: 2rem;
+            font-weight: bold;
+        }
         /* 2. An absolutely positioned notification box */
         .notification-box {
             position: absolute;
             top: 20px;
             right: 20px;
-            background-color: #28a745;
-            color: white;
+            background-color: #ff0000;
+            color: rgb(0, 0, 0);
             padding: 10px 15px;
-            border-radius: 5px;
+            border-radius: 100px;
             font-weight: bold;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         /* 3. A floating chat icon fixed at the bottom-right */
@@ -132,9 +129,10 @@ Give the chat icon's container a higher z-index than the rest of the page conten
         <div class="notification-box">
             <span>🔔 Update successful!</span>
         </div>
-        <h1 contenteditable="true">Positioning Demo</h1>
-        <p contenteditable="true">This main container is set to <code>position: relative</code>. This allows us to position the green notification box in the top-right corner relative to this container's boundaries using <code>position: absolute</code>.</p>
-        <p contenteditable="true">Scroll down the page to see how the chat widget in the bottom-right corner remains in a fixed position relative to the browser window, thanks to <code>position: fixed</code>. It will stay visible no matter where you scroll.</p>
+        
+        <input type="text" class="form-field heading-input" value="Positioning Demo">
+        <textarea class="form-field" rows="4">This main container is set to position: relative. This allows us to position the green notification box in the top-right corner relative to this container's boundaries using position: absolute.</textarea>
+        <textarea class="form-field" rows="4">Scroll down the page to see how the chat widget in the bottom-right corner remains in a fixed position relative to the browser window, thanks to position: fixed. It will stay visible no matter where you scroll.</textarea>
     </div>
 
     <div class="chat-widget-container">
