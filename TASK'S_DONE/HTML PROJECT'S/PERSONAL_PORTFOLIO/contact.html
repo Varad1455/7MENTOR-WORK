@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONTACT | My Portfolio</title>
+</head>
+<body>
     <header>
-        <div><h1>Welcome to My Portfolio</h1><a href="/assets/images/V1455(CIRCLE CUT).png"></div>
+        <h1>Welcome to My Portfolio</h1>
         <nav>
-            <a href="/TASK'S_DONE"><img src="/TASK'S_DONE/HTML PROJECT'S/PERSONAL_PORTFOLIO/assets/images/V1455(CIRCLE CUT).png" alt="Profile Picture" width="35" height="35"></a>
+            <a href="index.html"><img src="assets/images/V1455(CIRCLE CUT).png" alt="Varad Argade Logo" width="35" height="35"></a>
             <a href="index.html">Home</a> |
             <a href="about.html">About</a> |
             <a href="project.html">Projects</a> |
             <a href="contact.html">Contact</a>
         </nav>
-        <hr><br>
+        <hr>
     </header>
     <main>
         <section>
@@ -33,20 +35,37 @@
             <h2>Get in Touch</h2>
             <p>If you prefer to reach out via a form, please fill out the contact form below, and I'll get back to you as soon as possible.</p>
             <h3>Contact Form</h3>
-            <form>
-                <h5><mark>NOTE:Please fill out all fields</mark></h5>
-                <label>Name:<br><input type="text" name="name" required></label><br><br>
-                <label>Email:<br><input type="email" name="email" required></label><br><br>
-                <label>Subject:<br><input type="text" name="subject"></label><br><br>
-                <label>Message:<br><textarea name="message" rows="5"></textarea></label><br><br>
+            <form action="#" method="post">
+                <p><mark>NOTE: Please fill out all required fields (*).</mark></p>
+                <div>
+                    <label for="name">Name: *</label><br>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email: *</label><br>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="subject">Subject:</label><br>
+                    <input type="text" id="subject" name="subject">
+                </div>
+                <div>
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
                 <button type="submit">Send Message</button>
-
             </form>
         </section>
     </main>
     <footer>
-        <br><hr>
-        <p>&copy; 2025 My Portfolio-MR.VARAD1455</p>
+        <hr>
+        <h2>Stay Connected</h2>
+        <p>Connect with me on social media:</p>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/varad-argade">LinkedIn</a></li>
+            <li><a href="https://github.com/Varad1455">GitHub</a></li>
+        </ul>
+        <p>&copy; 2024 My Portfolio-MR.VARAD1455</p>
     </footer>
 </body>
 </html>
