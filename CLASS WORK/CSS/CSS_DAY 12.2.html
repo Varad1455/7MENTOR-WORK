@@ -1,0 +1,79 @@
+<!-- This HTML file demonstrates various CSS animation techniques using @keyframes. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animation Demo</title>
+    <style>
+        /* Basic styling for the body to arrange the boxes */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            gap: 30px;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Base styling for all demonstration boxes */
+        .Box {
+            width: 200px;
+            height: 100px;
+            position: relative; /* Required for 'top' animation to work */
+            background: red;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animation for the first box */
+        .Box1 {
+           /* 'animation' shorthand: name duration iteration-count direction */
+           animation: move 3s infinite alternate;
+        }
+        /* Keyframes for the 'move' animation using 'from' and 'to' */
+        @keyframes move {
+            from{top:0px;} /* Starting state of the animation */
+            to{top: 100px;} /* Ending state of the animation */
+        }
+
+        /* Animation for the second box */
+        .Box2 {
+            animation: move2 3s infinite alternate;
+        }
+        /* Keyframes for 'move2' using percentages to define steps. */
+        /* This allows for changing multiple properties at once. */
+        @keyframes move2 {
+            0%{top: 0; background: red; width: 100px;} /* Start: 0% */
+            100%{top: 100px; background: blue; width: 300px;} /* End: 100% */
+        }
+
+        /* Animation for the third box */
+        .Box3 {
+            /* 'linear' timing function ensures constant speed between keyframes */
+            animation: move3 3s infinite linear;
+        }
+        /* Keyframes for 'move3' with multiple steps for a more complex animation */
+        @keyframes move3 {
+            0%   {top: 0px;   background: red;}
+            25%  {top: 300px; background: blue;}
+            50%  {top: 100px; background: green;}
+            75%  {top: 300px; background: purple;}
+            100% {top: 0px;   background: orange;}
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- These divs demonstrate different CSS animations. -->
+    <div class="Box Box1">FROM TO</div>
+    <div class="Box Box2">0% TO 100%</div>
+    <div class="Box Box3">MULTI-STEP</div>
+</body>
+</html>
