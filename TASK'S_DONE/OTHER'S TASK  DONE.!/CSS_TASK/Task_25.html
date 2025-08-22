@@ -1,0 +1,42 @@
+<!-- Create a div box that rotates 360 degrees infinitely. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Rotation</title>
+    <style>
+        body {
+            /* Center the content */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        .rotating-box {
+            width: 150px;
+            height: 150px;
+            background-color: #ff0000;
+            border-radius: 10px;
+            /* Apply the animation */
+            animation: spin 1s linear infinite;
+        }
+
+        /* Define the keyframes for the rotation */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="rotating-box"></div>
+</body>
+</html>
