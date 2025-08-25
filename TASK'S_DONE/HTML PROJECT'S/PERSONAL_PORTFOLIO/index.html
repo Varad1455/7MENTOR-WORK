@@ -4,23 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME | My Portfolio</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 960px; /* Sets a max-width for content */
+            margin: 0 auto;   /* Centers the container horizontally */
+            padding: 20px;    /* Adds some space on the sides */
+        }
+        header, .intro, footer {
+            text-align: center; /* Center-aligns text and inline elements */
+        }
+        .intro img {
+            width: 200px; /* Adjust size as needed */
+            height: 200px;
+            border-radius: 50%; /* Makes the image circular */
+            object-fit: cover; /* Prevents image from stretching */
+        }
+    </style>
 </head>
 <body>
-    <body>
+    <div class="container">
      <header>
-        <div><h1>Welcome to My Portfolio</h1><a href="/TASK'S_DONE/HTML PROJECT'S/PERSONAL_PORTFOLIO/assets/images/V1455(CIRCLE CUT).png"></div>
+        <h1>Welcome to My Portfolio</h1>
         <nav>
-            <a href="/TASK'S_DONE"><img src="/TASK'S_DONE/HTML PROJECT'S/PERSONAL_PORTFOLIO/assets/images/V1455(CIRCLE CUT).png" alt="Profile Picture" width="35" height="35"></a>
+            <a href="index.html"><img src="assets/images/V1455(CIRCLE CUT).png" alt="Varad Argade Logo" width="35" height="35"></a>
             <a href="index.html">Home</a> |
             <a href="about.html">About</a> |
             <a href="project.html">Projects</a> |
             <a href="contact.html">Contact</a>
         </nav>
-        <hr><br>
+        <hr>
     </header>
     <main>
-        <section>
-            <img src="/TASK'S_DONE/HTML PROJECT'S/PERSONAL_PORTFOLIO/assets/images/MY LOGO'S.jpg" alt="Profile Picture" width="350" height="350">
+        <section class="intro">
+            <img src="assets/images/MY LOGO'S.jpg" alt="Profile Picture">
             <h2>Hello, I'm <mark>VARAD ARGADE</mark></h2>
             <p>
                 I'm <b>VARAD ARGADE</b>, a seasoned professional editor and coder with 10 years of experience in the industry. I specialize in crafting compelling narratives and ensuring precision in both written content and code.
@@ -72,15 +95,15 @@
         </section>
     </main>
     <footer>
+        <hr>
         <h2>Stay Connected</h2>
         <p>Connect with me on social media:</p>
         <ul>
             <li><a href="https://www.linkedin.com/in/varad-argade">LinkedIn</a></li>
             <li><a href="https://github.com/Varad1455">GitHub</a></li>
         </ul>
-        <br><hr>
-        <p>&copy; 2025 My Portfolio-MR.VARAD1455</p>
+        <p>&copy; 2024 My Portfolio-MR.VARAD1455</p>
     </footer>
-</body>
+    </div>
 </body>
 </html>
