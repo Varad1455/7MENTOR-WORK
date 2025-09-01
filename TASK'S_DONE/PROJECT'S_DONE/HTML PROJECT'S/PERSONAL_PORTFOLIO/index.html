@@ -20,6 +20,14 @@
         header, .intro, footer {
             text-align: center; /* Center-aligns text and inline elements */
         }
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        header h1 {
+            /* Applying the fade in and out animation */
+            animation: fadeInOut 4s ease-in-out infinite;
+        }
         .intro img {
             width: 200px; /* Adjust size as needed */
             height: 200px;
@@ -102,8 +110,12 @@
             <li><a href="https://www.linkedin.com/in/varad-argade">LinkedIn</a></li>
             <li><a href="https://github.com/Varad1455">GitHub</a></li>
         </ul>
-        <p>&copy; 2024 My Portfolio-MR.VARAD1455</p>
+        <p>&copy; <span id="copyright-year"></span> My Portfolio-MR.VARAD1455</p>
     </footer>
     </div>
+    <script>
+        // Automatically update the copyright year
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

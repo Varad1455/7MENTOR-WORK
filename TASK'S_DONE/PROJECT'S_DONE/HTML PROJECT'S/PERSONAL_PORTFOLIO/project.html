@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROJECT'S | My Portfolio</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header, footer {
+            text-align: center;
+        }
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        header h1 {
+            animation: fadeInOut 4s ease-in-out infinite;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
     <header>
         <h1>Welcome to My Portfolio</h1>
         <nav>
@@ -16,37 +41,27 @@
             <a href="contact.html">Contact</a>
         </nav>
         <hr>
-    </header>
-    <main>
+    </header>    <main>
         <section>
             <h2>Highlighted Projects</h2>
             <article>
-                <h3>WeatherNow App</h3>
-                <p>A weather forecasting app that provides real-time weather data using the OpenWeatherMap API. Fully responsive and optimized for both desktop and mobile devices.</p>
+                <h3>WordScramble Game</h3>
+                <p>A fun and interactive word scramble game built with vanilla JavaScript. Players unscramble words against the clock to test their vocabulary.</p>
                 <ul>
-                    <li>Technologies: HTML, CSS, JavaScript, API</li>
-                    <li>Features: Search by city, current weather, 5-day forecast</li>
+                    <li>Technologies: HTML, CSS, JavaScript</li>
+                    <li>Features: Timed rounds, score tracking, random word generation</li>
                 </ul>
             </article>
             <article>
-                <h3>TaskPro Manager</h3>
-                <p>A productivity tool to manage your daily tasks efficiently. It includes CRUD operations, filtering, and reminders.</p>
+                <h3>Financy Web Page</h3>
+                <p>A modern, fully responsive landing page for a fictional finance company. Designed with a clean and professional aesthetic to attract potential clients.</p>
                 <ul>
-                    <li>Technologies: React, JavaScript, LocalStorage</li>
-                    <li>Features: Add/edit/delete tasks, light/dark mode</li>
-                </ul>
-            </article>
-            <article>
-                <h3>My Portfolio Website</h3>
-                <p>This personal portfolio is built with plain HTML and showcases my projects, skills, and contact details.</p>
-                <ul>
-                    <li>Technologies: HTML, CSS (optional styling)</li>
-                    <li>Features: Multi-page structure, easy navigation</li>
+                    <li>Technologies: HTML, CSS</li>
+                    <li>Features: Responsive layout, clean UI, contact form</li>
                 </ul>
             </article>
         </section>
-    </main>
-    <footer>
+    </main>    <footer>
         <hr>
         <h2>Stay Connected</h2>
         <p>Connect with me on social media:</p>
@@ -54,7 +69,11 @@
             <li><a href="https://www.linkedin.com/in/varad-argade">LinkedIn</a></li>
             <li><a href="https://github.com/Varad1455">GitHub</a></li>
         </ul>
-        <p>&copy; 2024 My Portfolio-MR.VARAD1455</p>
-    </footer>
+        <p>&copy; <span id="copyright-year"></span> My Portfolio-MR.VARAD1455</p>
+    </footer>    </div>
+    <script>
+        // Automatically update the copyright year
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
