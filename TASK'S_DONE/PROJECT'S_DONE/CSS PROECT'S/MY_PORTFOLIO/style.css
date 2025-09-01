@@ -10,6 +10,7 @@
     --secondary-text-color: #ffffff;
     --accent-text-color: #ffffff; /* Keeping for consistency, value is white */
     --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-bg2: rgba(0, 0, 0, 0.678);
     --glass-border: rgba(255, 255, 255, 0.18);
     --blur-effect: blur(8px);
     --font-family: 'Poppins', sans-serif;
@@ -532,7 +533,7 @@ footer {
         left: -100%; /* Start off-screen */
         top: 60px; /* Position below header, adjust as needed */
         flex-direction: column;
-        background: var(--glass-bg);
+        background: var(--glass-bg2);
         backdrop-filter: var(--blur-effect);
         width: 100%;
         text-align: center;
