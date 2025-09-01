@@ -4,10 +4,10 @@
 /* === CSS Variables (Root) === */
 :root {
     /* Glassmorphism Palette */
-    --accent-color-start: #363636;    /* Hyper Blue */
-    --accent-color-end: #8b8b8b;      /* Vibrant Purple */
+    --accent-color-start: #383838;    /* Hyper Blue */
+    --accent-color-end: #000000;      /* Vibrant Purple */
     --primary-text-color: #ffffff;
-    --secondary-text-color: #e0e0e0;
+    --secondary-text-color: #ffffff;
     --accent-text-color: #ffffff; /* Keeping for consistency, value is white */
     --glass-bg: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.18);
@@ -247,10 +247,6 @@ main > section {
 .card h3 {
     color: var(--primary-text-color); /* Stays the same, but now it's white */
     margin-bottom: 1rem;
-}
-
-    content: '→ ';
-    margin-right: 8px;
 }
 
 /* --- Contact Page --- */
