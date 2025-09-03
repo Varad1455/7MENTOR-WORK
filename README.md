@@ -77,10 +77,18 @@ To explore the projects locally, follow these steps:
 
 It's a great idea to add screenshots of your projects here to provide a quick visual preview.
 
-| Project Name           | Preview                |
-| ---------------------- | ---------------------- |
-| Personal Portfolio     | *(Your screenshot here)* |
-| College Website        | *(Your screenshot here)* |
+
+---
+
+## 📸 Project Previews & Demos
+
+It's a great idea to add screenshots and live demo links for your projects to provide a quick visual preview.
+
+
+| Project Name           | Preview                | Demo Link                                                                                             |
+| ---------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------- |
+| Personal Portfolio     | *(Your screenshot here)* | [View Live](https://varad1455.github.io/7MENTOR-WORK/TASK'S_DONE/PROJECT'S_DONE/HTML%20PROJECT'S/PERSONAL_PORTFOLIO/index.html) |
+| College Website        | *(Your screenshot here)* | [View Live](https://varad1455.github.io/7MENTOR-WORK/TASK'S_DONE/PROJECT'S_DONE/HTML%20PROJECT'S/COLLAGE_WEBSITE/home.html)       |
 
 ---
 
