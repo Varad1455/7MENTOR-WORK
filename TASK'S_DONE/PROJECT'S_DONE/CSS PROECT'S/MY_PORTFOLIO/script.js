@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             
             // !!! IMPORTANT: Replace with your own access key from web3forms.com !!!
-            const accessKey = 'YOUR_ACCESS_KEY_HERE'; 
+            const accessKey = '0ed93d29-90fb-4dec-a538-0dc42878dc10'; 
             
             const formData = new FormData(contactForm);
             formData.append("access_key", accessKey);
