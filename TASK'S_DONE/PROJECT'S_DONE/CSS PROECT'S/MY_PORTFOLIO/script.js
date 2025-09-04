@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const json = JSON.stringify(object);
 
             formStatus.innerHTML = "Please Wait, Sending Now...!";
-            formStatus.style.color = "#ff0000ff";
+            formStatus.style.color = "#00ff33ff";
 
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
