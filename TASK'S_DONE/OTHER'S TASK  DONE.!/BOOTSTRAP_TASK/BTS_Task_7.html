@@ -1,0 +1,50 @@
+<!-- 
+ sidebar with Nested Content
+Design a layout with two main columns:
+Sidebar (col-md-3) → should contain a nested grid of two rows, each having two columns.
+Main Content (col-md-9) → just some text.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar with Nested Content</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body class="p-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 bg-dark text-white p-3">
+                <h4>Sidebar (COL-3)</h4>
+                <div class="row">
+                    <div class="col-6 bg-primary text-white p-2">
+                        <p>ROW-1 COL-1</p>
+                    </div>
+                    <div class="col-6 bg-secondary text-white p-2">
+                        <p>ROW-1 COL-2</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 bg-success text-white p-2">
+                        <p>ROW-2 COL-1</p>
+                    </div>
+                    <div class="col-6 bg-danger text-white p-2">
+                        <p>ROW-2 COL2</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 bg-dark text-white p-3">
+                <h4>Main Content (COL-9)</h4>
+                <p>This is the main content area.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
