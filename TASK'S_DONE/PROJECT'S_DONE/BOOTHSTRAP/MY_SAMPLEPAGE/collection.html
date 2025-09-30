@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Collection | My_Library</title>
+
+    <!-- Boothstrap CDN Link -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+        @keyframes fade-in-out {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .brand-animation {
+            animation: fade-in-out 3s ease-in-out infinite;
+            font-weight: bold;
+        }
+        .sticky-search-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1020; /* Below navbar (1030) but above most content */
+            backdrop-filter: blur(5px);
+        }
+        body { padding-bottom: 80px; } /* Add padding to prevent overlap with footer */
+    </style>
+</head>
+<body class="pb-5">
+<div class="container-fluid px-0">
+
+<!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand border-bottom text-white brand-animation d-flex align-items-center" href="index.html"><i class="bi bi-book-fill me-2"></i>My_Library</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link text-white" href="index.html">Home</a>
+        <a class="nav-link text-white" href="features.html">Services</a>
+        <a class="nav-link active text-white" aria-current="page" href="collection.html">Collection</a>
+        <a class="nav-link text-white" href="about.html">About</a>
+        <a class="nav-link text-white" href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="container my-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4">Our Full Collection</h1>
+        <p class="lead">Browse through our extensive library of books. There's something for every reader.</p>
+    </div>
+
+    <!-- Sticky Search Bar Container -->
+    <div class="sticky-search-bar">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <input type="text" id="bookSearch" class="form-control form-control-lg" placeholder="Search for books by title...">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Book Grid -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+        <!-- Book 1 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0 rounded-3 overflow-hidden">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book1.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">The Midnight Library</h5>
+                    <p class="card-text small">A novel about choices, regrets, and the path to a life well-lived.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹499</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 2 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book2.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">A Place for Us</h5>
+                    <p class="card-text small">An epic family saga, compassionate and masterful.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹549</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 3 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book3.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Educated</h5>
+                    <p class="card-text small">A memoir about a young woman's journey to earn a PhD.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹450</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 4 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book4.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Atomic Habits</h5>
+                    <p class="card-text small">An easy & proven way to build good habits & break bad ones.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹399</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 5 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book5.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">The Alchemist</h5>
+                    <p class="card-text small">A philosophical book about following your dreams.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹299</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 6 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book6.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Dune</h5>
+                    <p class="card-text small">A landmark science fiction novel set in a distant future.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹699</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 7 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book7.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">1984</h5>
+                    <p class="card-text small">A dystopian novel by English novelist George Orwell.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹249</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 8 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book8.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Brave New World</h5>
+                    <p class="card-text small">A dystopian social science fiction novel by Aldous Huxley.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹320</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 9 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book9.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Fahrenheit 451</h5>
+                    <p class="card-text small">A novel about a future where books are outlawed.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹350</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 10 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book10.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">The Hobbit</h5>
+                    <p class="card-text small">A children's fantasy novel by J. R. R. Tolkien.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹480</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 11 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book11.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Project Hail Mary</h5>
+                    <p class="card-text small">A science fiction novel by Andy Weir.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹599</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 12 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book12.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Sapiens</h5>
+                    <p class="card-text small">A Brief History of Humankind.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹550</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 13 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book13.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">The Great Gatsby</h5>
+                    <p class="card-text small">A novel by American writer F. Scott Fitzgerald.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹220</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 14 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book14.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">To Kill a Mockingbird</h5>
+                    <p class="card-text small">A novel by Harper Lee published in 1960.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹340</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 15 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book15.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">The Catcher in the Rye</h5>
+                    <p class="card-text small">A novel by J. D. Salinger, partially published in serial form.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹300</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 16 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book16.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Pride and Prejudice</h5>
+                    <p class="card-text small">A romantic novel of manners written by Jane Austen.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹199</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 17 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book17.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">War and Peace</h5>
+                    <p class="card-text small">A literary work mixed with chapters on history and philosophy.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹750</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 18 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book18.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Moby Dick</h5>
+                    <p class="card-text small">The saga of Captain Ahab and his relentless pursuit of a whale.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹420</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 19 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book19.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">The Lord of the Rings</h5>
+                    <p class="card-text small">An epic high-fantasy novel by J. R. R. Tolkien.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹999</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 20 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book20.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Crime and Punishment</h5>
+                    <p class="card-text small">A novel by the Russian author Fyodor Dostoevsky.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹400</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 21 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book21.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">The Brothers Karamazov</h5>
+                    <p class="card-text small">A passionate philosophical novel set in 19th-century Russia.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹650</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 22 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book22.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Anna Karenina</h5>
+                    <p class="card-text small">A novel by the Russian author Leo Tolstoy.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹520</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 23 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book23.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">The Odyssey</h5>
+                    <p class="card-text small">An epic poem attributed to the ancient Greek poet Homer.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹380</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 24 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book24.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Don Quixote</h5>
+                    <p class="card-text small">A Spanish epic novel by Miguel de Cervantes.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹490</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Book 25 -->
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="/TASK'S_DONE/PROJECT'S_DONE/BOOTHSTRAP/MY_SAMPLEPAGE/img_books/Book25.png" class="card-img-top" alt="Book Cover">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">The Bell Jar</h5>
+                    <p class="card-text small">The only novel written by the American writer Sylvia Plath.</p>
+                    <p class="card-text fw-bold mt-auto mb-2">₹330</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm mt-auto">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer id="page-footer" class="bg-dark text-white py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <h5>About My_Library</h5>
+        <p class="text-muted">
+          Your gateway to endless stories and knowledge. We are dedicated to fostering a love for reading and learning in our community.
+        </p>
+      </div>
+      <div class="col-md-2 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="features.html" class="text-white text-decoration-none">Services</a></li>
+          <li><a href="collection.html" class="text-white text-decoration-none">Collection</a></li>
+          <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5>Contact Info</h5>
+        <ul class="list-unstyled text-muted">
+          <li><i class="bi bi-geo-alt-fill me-2"></i> 123 Library Lane, Booksville, BK 54321</li>
+          <li><i class="bi bi-envelope-fill me-2"></i> info@mylibrary.com</li>
+          <li><i class="bi bi-telephone-fill me-2"></i> +1 (123) 456-7890</li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5>Follow Us</h5>
+        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+        <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+        <a href="#" class="text-white"><i class="bi bi-linkedin fs-4"></i></a>
+      </div>
+    </div>
+    <hr class="my-4 border-secondary">
+    <div class="text-center p-3 text-muted">
+      © 2025 Copyright:
+      <a class="text-white text-decoration-none" href="index.html">My_Library.com</a>
+    </div>
+  </div>
+</footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Search functionality
+        const searchInput = document.getElementById('bookSearch');
+        const bookGrid = document.querySelector('.row.g-4');
+        const books = bookGrid.querySelectorAll('.col');
+
+        searchInput.addEventListener('keyup', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+
+            books.forEach(book => {
+                const title = book.querySelector('.card-title').textContent.toLowerCase();
+                const bookColumn = book; // .col element
+
+                if (title.includes(searchTerm)) {
+                    bookColumn.style.display = 'block';
+                } else {
+                    bookColumn.style.display = 'none';
+                }
+            });
+        });
+
+        // Hide search bar when footer is visible
+        const stickySearchBar = document.querySelector('.sticky-search-bar');
+        const footer = document.getElementById('page-footer');
+
+        window.addEventListener('scroll', function() {
+            if (!stickySearchBar || !footer) return;
+
+            const footerTop = footer.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            // If the top of the footer is inside the viewport, hide the search bar
+            if (footerTop < windowHeight) {
+                stickySearchBar.classList.add('d-none');
+            } else {
+                stickySearchBar.classList.remove('d-none');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

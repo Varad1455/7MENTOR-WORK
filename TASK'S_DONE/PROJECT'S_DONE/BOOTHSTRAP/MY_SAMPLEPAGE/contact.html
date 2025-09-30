@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | My_Library</title>
+
+    <!-- Bootstrap CDN Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <style>
+        @keyframes fade-in-out {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .brand-animation {
+            animation: fade-in-out 3s ease-in-out infinite;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid px-0">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand border-bottom text-white brand-animation d-flex align-items-center" href="index.html"><i class="bi bi-book-fill me-2"></i>My_Library</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link text-white" href="index.html">Home</a>
+        <a class="nav-link text-white" href="features.html">Services</a>
+        <a class="nav-link text-white" href="collection.html">Collection</a>
+        <a class="nav-link text-white" href="about.html">About</a>
+        <a class="nav-link active text-white" aria-current="page" href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="text-center mb-5">
+                <h1 class="display-4"><i class="bi bi-book-half me-2"></i>Get in Touch</h1>
+                <p class="lead text-muted">Have a question or feedback? We'd love to hear from you! Please fill out the form below.</p>
+            </div>
+
+            <!-- Contact Form -->
+            <form>
+                <!-- Name Input -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+
+                <!-- Email Input -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="your.email@example.com" required>
+                </div>
+
+                <!-- Message Textarea -->
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="5" placeholder="Your question or comment here..." required></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                </div>
+            </form>
+
+            <!-- Map Section -->
+            <div class="mt-5 pt-5 border-top">
+                <div class="text-center mb-4">
+                    <h2 class="display-6">Our Location</h2>
+                    <p class="lead text-muted">Visit us in person! We're located at the heart of the city.</p>
+                </div>
+                <div class="ratio ratio-16x9 rounded shadow-sm">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121012.79873267419!2d73.83282014999999!3d18.589813350000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2be593cc00001%3A0xcd9f460ae762094f!2sMYBOOKS%20LIBRARY!5e0!3m2!1sen!2sin!4v1758785177097!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <p class="text-center text-muted mt-3">123 Library Lane, Booksville, BK 54321</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <h5>About My_Library</h5>
+        <p class="text-muted">
+          Your gateway to endless stories and knowledge. We are dedicated to fostering a love for reading and learning in our community.
+        </p>
+      </div>
+      <div class="col-md-2 mb-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="features.html" class="text-white text-decoration-none">Services</a></li>
+          <li><a href="collection.html" class="text-white text-decoration-none">Collection</a></li>
+          <li><a href="about.html" class="text-white text-decoration-none">About Us</a></li>
+          <li><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5>Contact Info</h5>
+        <ul class="list-unstyled text-muted">
+          <li><i class="bi bi-geo-alt-fill me-2"></i> 123 Library Lane, Booksville, BK 54321</li>
+          <li><i class="bi bi-envelope-fill me-2"></i> info@mylibrary.com</li>
+          <li><i class="bi bi-telephone-fill me-2"></i> +1 (123) 456-7890</li>
+        </ul>
+      </div>
+      <div class="col-md-3 mb-4">
+        <h5>Follow Us</h5>
+        <a href="#" class="text-white me-3"><i class="bi bi-facebook fs-4"></i></a>
+        <a href="#" class="text-white me-3"><i class="bi bi-twitter fs-4"></i></a>
+        <a href="#" class="text-white me-3"><i class="bi bi-instagram fs-4"></i></a>
+        <a href="#" class="text-white"><i class="bi bi-linkedin fs-4"></i></a>
+      </div>
+    </div>
+    <hr class="my-4 border-secondary">
+    <div class="text-center p-3 text-muted">
+      © 2025 Copyright:
+      <a class="text-white text-decoration-none" href="index.html">My_Library.com</a>
+    </div>
+  </div>
+</footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
