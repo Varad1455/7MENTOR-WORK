@@ -1,0 +1,28 @@
+<!-- wap to accspt choice from user if user enters 1 perfrom addition if user enters 2 perfrom substraction and then multiplication for 3 using else if ladder -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWITCH_CASE STATEMENT FOR ARITHMETIC OPERATIONS</title>
+</head>
+<body>
+    
+    <script>
+        const choice = Number(prompt("Enter choice: 1 for Addition, 2 for Subtraction, 3 for Multiplication"));
+        const num1 = Number(prompt("Enter the first number"));
+        const num2 = Number(prompt("Enter the second number"));
+
+        if (choice === 1) {
+            document.write(`${num1} + ${num2} = ${num1 + num2}`);
+        } else if (choice === 2) {
+            document.write(`${num1} - ${num2} = ${num1 - num2}`);
+        } else if (choice === 3) {
+            document.write(`${num1} * ${num2} = ${num1 * num2}`);
+        } else {
+            document.write("Invalid choice");
+        }
+    </script>
+</body>
+</html>
