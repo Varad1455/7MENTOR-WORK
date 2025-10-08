@@ -1,0 +1,28 @@
+<!-- wap to display even nos between 1-10 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task.13</title>
+</head>
+<body>
+    <main>
+        <h1>Even Numbers from 1 to 10</h1>
+        <div id="evenNumberOutput"></div>
+    </main>
+
+    <script>
+        // Collect even numbers between 1 and 10 (inclusive)
+        const evenNumbers = [];
+        for (let number = 2; number <= 10; number += 2) {
+            evenNumbers.push(number);
+        }
+
+        // Display the numbers inside the target container
+        const outputContainer = document.getElementById("evenNumberOutput");
+        outputContainer.innerHTML = evenNumbers.join("<br>");
+    </script>
+</body>
+</html>
