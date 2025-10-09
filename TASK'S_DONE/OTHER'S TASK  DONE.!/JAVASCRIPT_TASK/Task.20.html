@@ -1,0 +1,41 @@
+<!-- WAP: Check if a given number is Armstrong or not (simple JS only) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Armstrong Number Check (JS Only)</title>
+</head>
+<body>
+  <script>
+    // An Armstrong number (narcissistic number) is a number that is the sum of its own digits
+    // each raised to the power of the number of digits. For example, 153 = 1^3 + 5^3 + 3^3.
+
+    const input = prompt("Enter a non-negative integer to check if it's an Armstrong number:");
+
+    if (input === null || input.trim() === "") {
+      alert("No input provided.");
+    } else {
+      const n = Number(input);
+      if (!Number.isInteger(n) || n < 0) {
+        alert("Please enter a valid non-negative integer.");
+      } else {
+        const digits = String(n).length; // number of digits
+        let sum = 0;
+        let x = n;
+        // Handle 0 (while loop won't run, sum stays 0 which is correct)
+        while (x > 0) {
+          const d = x % 10;
+          sum += Math.pow(d, digits);
+          x = Math.trunc(x / 10);
+        }
+
+        if (sum === n) {
+          alert(n + " is an Armstrong number.");
+        } else {
+          alert(n + " is not an Armstrong number.");
+        }
+      }
+    }
+  </script>
+</body>
+</html>

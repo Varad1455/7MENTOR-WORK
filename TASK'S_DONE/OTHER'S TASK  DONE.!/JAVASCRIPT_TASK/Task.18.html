@@ -1,0 +1,33 @@
+<!-- WAP: Reverse/swap first and last digits of a three-digit number  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reverse 3-Digit Number (JS Only)</title>
+</head>
+<body>
+  <script>
+    // Prompt user for a three-digit number
+    const input = prompt("Enter a three-digit number:");
+    const n = Number(input);
+
+    // Validate input is an integer between 100 and 999
+    if (!Number.isInteger(n) || n < 100 || n > 999) {
+      alert("Please enter a valid three-digit integer (100-999).");
+    } else {
+      // Extract digits
+      const first = Math.floor(n / 100);        // Hundreds place
+      const middle = Math.floor((n % 100) / 10); // Tens place
+      const last = n % 10;                       // Ones place
+
+      // Swap first and last digits (for 3-digit numbers this is same as reversing)
+      const result = last * 100 + middle * 10 + first;
+
+      // Show the result
+      alert("Original: " + n +
+            "\nFirst: " + first + ", Middle: " + middle + ", Last: " + last +
+            "\nResult: " + result);
+    }
+  </script>
+</body>
+</html>
