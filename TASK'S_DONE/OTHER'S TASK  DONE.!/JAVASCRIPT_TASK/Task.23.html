@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         //  calculate the electricity bill based on the unit;
+        var unit=prompt("enter the unit");
+        if(unit<=100){
+            var total_unit=unit*1.5;
+            document.write("your total electricity charges are = " + total_unit);
+        }
+        else if(unit<=200){
+            var total_unit=unit*2;
+            document.write("your total electricity charges are = " + total_unit);
+        }
+        else if(unit <= 300){
+            var total_unit=unit*3;
+            document.write("your total electricity charges are = " + total_unit);
+        }
+        else{
+            var total_unit=unit*5;
+            document.write("your total electricity charges are = " + total_unit);
+        }
+
+    </script>
+</body>
+</html>
