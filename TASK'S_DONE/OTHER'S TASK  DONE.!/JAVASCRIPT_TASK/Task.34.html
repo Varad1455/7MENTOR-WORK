@@ -1,0 +1,30 @@
+<!-- Write a function getGrade(marks) that returns grade based on marks:
+≥90 → "A"
+≥75 → "B"
+≥50 → "C"
+else → "Fail" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+        function getGrade(marks) {
+            if (marks >= 90) return "A";
+            if (marks >= 75) return "B";
+            if (marks >= 50) return "C";
+            return "Fail";
+        }
+
+        // Print output using document.write
+        document.write("Marks: 92 -> Grade: " + getGrade(92) + "<br>");
+        document.write("Marks: 78 -> Grade: " + getGrade(78) + "<br>");
+        document.write("Marks: 55 -> Grade: " + getGrade(55) + "<br>");
+        document.write("Marks: 40 -> Grade: " + getGrade(40));
+    </script>
+</body>
+</html>

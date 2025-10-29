@@ -1,0 +1,24 @@
+<!-- Write an arrow function to return the maximum of three numbers.-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write an arrow function to return the maximum of three numbers.</title>
+</head>
+<body>
+    <script>
+        const maxOfThree = (a, b, c) => {
+            return Math.max(a, b, c);
+        };
+
+        let num1 = parseFloat(prompt("Enter first number:"));
+        let num2 = parseFloat(prompt("Enter second number:"));
+        let num3 = parseFloat(prompt("Enter third number:"));
+
+        let maxNumber = maxOfThree(num1, num2, num3);
+        alert("The maximum of the three numbers is: " + maxNumber);
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!-- wap to take name from user using form tag and display also style and change the color of text after display the name -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Display Application</title>
+</head>
+<body>
+    <!-- Main heading for the page -->
+    <h1>Welcome</h1>
+    
+    <!-- Form to collect user input -->
+    <form>
+        <!-- Text input field for user's name -->
+        <!-- Note: Missing 'id' attribute which is needed for JavaScript -->
+        <input type="text" name="name" id="name" placeholder="Enter your name">
+        
+        <!-- Button to trigger the show() function -->
+        <input type="button" onclick="show()" value="Click to Display">
+    </form>
+
+    <!-- JavaScript section -->
+    <script>
+        /**
+         * Function to display the entered name
+         * Gets the value from input field and displays it on the page
+         */
+        function show() {
+            // Get the value from the input field with id "name"
+            var res = document.getElementById("name").value;
+            
+            // Display the result on the page
+            // Note: document.write() replaces entire page content
+            document.write(res);
+        }
+    </script>
+</body>
+</html>

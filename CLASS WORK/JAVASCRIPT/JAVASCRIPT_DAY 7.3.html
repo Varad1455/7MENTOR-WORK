@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions - Demo</title>
+</head>
+<body>
+    <script>
+        // Demonstration: Function Declaration and invocation
+        // This script defines a function 'sq' that returns the square of a local number.
+
+        // Function Declaration (hoisted): can be called anywhere after this declaration
+        function sq() {
+            // Define a local variable 'a' and assign it the value 10
+            var a = 10;
+
+            // Return the square of 'a'
+            return a * a;
+        }
+
+        // Call the function and store the returned value in 'square'
+        var square = sq();
+
+        // Write the result into the document
+        // Note: document.write is usually avoided after the page loads; prefer console.log
+        // or updating the DOM (e.g., element.innerText) in real applications.
+        document.write(square);
+    </script>
+</body>
+</html>

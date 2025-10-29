@@ -1,0 +1,30 @@
+<!-- wap to perfrom addition of 3 nos and check the addition result is even or odd -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfrom Addition of 3 Nos and check the addition result is even or odd</title>
+</head>
+<body>
+    <script>
+        function add(a,b,c) //function_name
+        {
+            var Add=a+b+c; //function_body
+            if(Add%2==0)
+            {
+                document.writeln("Addition is Even: "+Add);
+            }
+            else
+            {
+                document.writeln("Addition is Odd: "+Add);
+            }
+        }
+        
+        //Function Calling
+        add(10,20,30);
+    </script>   
+    
+</body>
+</html>
