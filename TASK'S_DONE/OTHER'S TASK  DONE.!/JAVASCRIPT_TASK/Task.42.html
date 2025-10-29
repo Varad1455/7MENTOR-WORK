@@ -7,13 +7,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Name Display Application</title>
+    <style>
+        /* Basic styling for the form */
+        .form, .head  {
+            margin: 20px;
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+        input[type="button"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: lightblue;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        input[type="button"]:hover {
+            background-color: darkblue;
+            color: white;
+        }                    
+        h1{color:red;}
+        p{font-family:'Courier New', Courier, monospace;font-weight:bold;color:green;}     
+        button{background-color:yellow;cursor:pointer;border:none;padding:10px 20px;margin-top:10px;}
+    </style>
 </head>
 <body>
     <!-- Main heading for the page -->
-    <h1>Welcome</h1>
+    <h1 class="head">Welcome</h1>
     
     <!-- Form to collect user input -->
-    <form>
+    <form class="form">
         <!-- Text input field for user's name -->
         <!-- Note: Missing 'id' attribute which is needed for JavaScript -->
         <input type="text" name="name" id="name" placeholder="Enter your name">
@@ -28,13 +55,22 @@
          * Function to display the entered name
          * Gets the value from input field and displays it on the page
          */
-        function show() {
+        function show() 
+        {
             // Get the value from the input field with id "name"
             var res = document.getElementById("name").value;
             
             // Display the result on the page
             // Note: document.write() replaces entire page content
             document.write(res);
+            // Change the background color of the displayed text
+            document.body.style.color = "blue";
+            document.body.style.fontSize = "330px";
+            document.body.style.textAlign = "center";
+            document.body.style.marginTop = "10%";
+            document.body.style.fontFamily = "Arial, sans-serif";
+            document.body.style.fontWeight = "bold";
+            document.body.style.textShadow = "2px 2px 4px #000000";
         }
     </script>
 </body>
