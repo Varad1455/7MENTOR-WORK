@@ -12,7 +12,7 @@ When clicked again → shows it back
     <title>TSK.48</title>
 </head>
 <body>
-    <p id="text" style="text-align:center;">This is a sample paragraph. Click the button to hide/show me!</p>
+    <p id="text" style="text-align:center;">This is a sample paragraph. Click the button to hide/show me..!</p>
     <div style="text-align:center;">
         <button id="toggleButton">Hide/Show Text</button>
     </div>
@@ -21,12 +21,14 @@ When clicked again → shows it back
         const button = document.getElementById("toggleButton");
 
         button.onclick = function () {
-            if (text.style.display === "none") {
-                text.style.display = "block";
-            } 
-            else {
-                text.style.display = "none";
-            }
+            if (text.style.display === "none")
+                  {
+                     text.style.display = "block";
+                       } 
+            else 
+                 {
+                    text.style.display = "none";
+                       }
         };
     </script>
 </body>
