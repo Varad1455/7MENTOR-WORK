@@ -1,0 +1,30 @@
+<!-- The Array in Java_Script -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Array</title>
+</head>
+<body>
+    <h1>Array is here:</h1>
+    <script>
+        let array=[10,20,30,40,50];
+
+        document.write("<ul>");
+        document.write("<li><b>Original array:</b> "+array+"</li>");
+        let popped=array.pop();
+        document.write("<li><b>Popped value:</b> "+popped+"</li>");
+        document.write("<li><b>After pop:</b> "+array+"</li>");
+        document.write("<li><b>Includes 30:</b> "+array.includes(30)+"</li>");
+        document.write("<li><b>Index of 40:</b> "+array.indexOf(40)+"</li>");
+        document.write("<li><b>Last index of 20:</b> "+array.lastIndexOf(20)+"</li>");
+        document.write("<li><b>First number >30 index:</b> "+array.findIndex(function(value){return value>30;})+"</li>");
+        let sorted=array.slice().sort(function(a,b){return a-b;});
+        document.write("<li><b>Sorted ascending:</b> "+sorted+"</li>");
+        document.write("<li><b>Reverse order:</b> "+sorted.slice().reverse()+"</li>");
+        document.write("</ul>");
+    </script>
+</body>
+</html>
