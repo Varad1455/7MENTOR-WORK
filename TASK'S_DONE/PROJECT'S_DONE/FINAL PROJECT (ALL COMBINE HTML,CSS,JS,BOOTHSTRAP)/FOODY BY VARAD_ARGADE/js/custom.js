@@ -569,9 +569,9 @@ $(document).ready(function() {
     }
     
     const products = [
-        { name: 'Delicious Pizza', price: 299, image: 'images/f1.png' },
-        { name: 'Delicious Burger', price: 199, image: 'images/f2.png' },
-        { name: 'Delicious Pizza', price: 249, image: 'images/f3.png' }
+        { name: 'Margherita Pizza', price: 299, image: 'images/f1.png' },
+        { name: 'Chicken Burger', price: 199, image: 'images/f2.png' },
+        { name: 'Creamy Pasta', price: 249, image: 'images/f3.png' }
     ];
     
     const addToCartButtons = document.querySelectorAll('.food_section .options a');
