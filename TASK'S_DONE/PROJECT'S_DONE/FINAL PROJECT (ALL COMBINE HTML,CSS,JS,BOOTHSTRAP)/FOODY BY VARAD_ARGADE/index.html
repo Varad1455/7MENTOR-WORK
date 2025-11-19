@@ -141,6 +141,35 @@
     .order_online:hover::before {
       left: 100%;
     }
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    .navbar-brand span {
+      display: inline-block;
+      animation: brandPulse 2s ease-in-out infinite;
+      background: linear-gradient(45deg, #ffbe33, #ff6b35, #ffbe33);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: brandGlow 3s ease-in-out infinite, textShine 2s linear infinite;
+    }
+    @keyframes brandGlow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes textShine {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
   </style>
 
 </head>
@@ -181,9 +210,15 @@
               </li>
             </ul>
             <div class="user_option">
-              <a href="" class="user_link">
-                <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
+              <div style="position: relative;">
+                <a href="#" class="user_link" onclick="handleUserClick()" style="position: relative;">
+                  <img id="profilePic" src="" alt="Profile" style="display: none; width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                  <i id="userIcon" class="fa fa-user" aria-hidden="true"></i>
+                </a>
+                <div id="userDropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid #ddd; border-radius: 5px; padding: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); min-width: 120px; z-index: 1000;">
+                  <button onclick="logout()" style="width: 100%; padding: 8px; background: #ff4444; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 14px;">Logout</button>
+                </div>
+              </div>
               <a class="cart_link" href="#" onclick="toggleCart()" style="position: relative;">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -250,7 +285,7 @@
                   </form>
                 </div>
               </div>
-              <a href="menu.html" class="order_online" onclick="trackOrderClick(event)">
+              <a href="menu.html" class="order_online" onclick="return checkAuthAndRedirect(event)">
                 OUR_MENU'S
               </a>
             </div>
@@ -269,10 +304,10 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Fast Food Restaurant
+                      Welcome to Foody
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                      India's premier food delivery platform bringing delicious, authentic flavors right to your doorstep. Experience fresh, hot meals from the best local restaurants across Pune with lightning-fast delivery and unbeatable prices.
                     </p>
                     <div class="btn-box">
                       <a href="menu.html" class="btn1">
@@ -290,10 +325,10 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Fast Food Restaurant
+                      Quality & Freshness
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                      Every meal is prepared with the finest ingredients and delivered hot to your door. Our commitment to quality ensures that each bite is a delightful experience. Taste the difference with Foody's premium food selection.
                     </p>
                     <div class="btn-box">
                       <a href="menu.html" class="btn1">
@@ -311,10 +346,10 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Fast Food Restaurant
+                      Affordable & Fast
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                      Enjoy delicious meals at unbeatable prices with super-fast delivery. From ₹99 to ₹299, our menu offers something for everyone. Order now and experience the convenience of having your favorite food delivered in minutes.
                     </p>
                     <div class="btn-box">
                       <a href="menu.html" class="btn1">
@@ -1063,6 +1098,65 @@
   <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   
+  <!-- Auth Modal -->
+  <div id="authModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div style="background-color: white; margin: 5% auto; padding: 30px; border-radius: 10px; width: 90%; max-width: 400px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2 id="authTitle" style="margin: 0; color: #333;">Login to Foody</h2>
+        <span onclick="toggleAuthModal()" style="font-size: 28px; font-weight: bold; cursor: pointer; color: #999;">&times;</span>
+      </div>
+      
+      <!-- Login Form -->
+      <div id="loginForm">
+        <form onsubmit="return handleLogin(event)">
+          <div style="margin-bottom: 15px;">
+            <input type="email" id="loginEmail" placeholder="Email Address" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
+          </div>
+          <div style="margin-bottom: 15px;">
+            <input type="password" id="loginPassword" placeholder="Password" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
+          </div>
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 5px; color: #666; font-size: 14px;">Profile Picture (Optional)</label>
+            <input type="file" id="profilePicInput" accept="image/*" onchange="previewProfilePic(event)" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
+          </div>
+          <button type="submit" style="width: 100%; padding: 12px; background: #ffbe33; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-bottom: 15px;">Login</button>
+        </form>
+        <div style="text-align: center; color: #666;">
+          <p>Don't have an account? <a href="#" onclick="showSignup()" style="color: #ffbe33; text-decoration: none;">Sign up</a></p>
+        </div>
+      </div>
+      
+      <!-- Signup Form -->
+      <div id="signupForm" style="display: none;">
+        <form onsubmit="return handleSignup(event)">
+          <div style="margin-bottom: 15px;">
+            <input type="text" id="signupName" placeholder="Full Name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
+          </div>
+          <div style="margin-bottom: 15px;">
+            <input type="email" id="signupEmail" placeholder="Email Address" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
+          </div>
+          <div style="margin-bottom: 15px;">
+            <input type="tel" id="signupPhone" placeholder="Phone Number" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
+          </div>
+          <div style="margin-bottom: 15px;">
+            <input type="password" id="signupPassword" placeholder="Password" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
+          </div>
+          <div style="margin-bottom: 15px;">
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
+          </div>
+          <div style="margin-bottom: 20px;">
+            <label style="display: block; margin-bottom: 5px; color: #666; font-size: 14px;">Profile Picture (Optional)</label>
+            <input type="file" id="signupProfilePic" accept="image/*" onchange="previewSignupPic(event)" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
+          </div>
+          <button type="submit" style="width: 100%; padding: 12px; background: #ffbe33; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-bottom: 15px;">Sign Up</button>
+        </form>
+        <div style="text-align: center; color: #666;">
+          <p>Already have an account? <a href="#" onclick="showLogin()" style="color: #ffbe33; text-decoration: none;">Login</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Cart Modal -->
   <div id="cartModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
     <div style="background-color: white; margin: 5% auto; padding: 20px; border-radius: 10px; width: 80%; max-width: 600px; max-height: 80%; overflow-y: auto;">
@@ -1080,260 +1174,7 @@
     </div>
   </div>
 
-  <script>
-    // Initialize EmailJS
-    emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
-    
-    // Cart functionality
-    let cart = [];
-    
-    function addToCart(name, price, image) {
-      const existingItem = cart.find(item => item.name === name);
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        cart.push({ name, price, image, quantity: 1 });
-      }
-      updateCartUI();
-      showAddedToCartMessage(name);
-    }
-    
-    function removeFromCart(name) {
-      cart = cart.filter(item => item.name !== name);
-      updateCartUI();
-    }
-    
-    function updateQuantity(name, quantity) {
-      const item = cart.find(item => item.name === name);
-      if (item) {
-        item.quantity = Math.max(1, quantity);
-        updateCartUI();
-      }
-    }
-    
-    function updateCartUI() {
-      const cartCount = document.getElementById('cart-count');
-      const cartItems = document.getElementById('cartItems');
-      const cartTotal = document.getElementById('cartTotal');
-      
-      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      
-      if (totalItems > 0) {
-        cartCount.style.display = 'flex';
-        cartCount.textContent = totalItems;
-      } else {
-        cartCount.style.display = 'none';
-      }
-      
-      cartItems.innerHTML = cart.length === 0 ? '<p>Your cart is empty</p>' : 
-        cart.map(item => `
-          <div style="display: flex; align-items: center; padding: 10px; border-bottom: 1px solid #eee;">
-            <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 5px; margin-right: 15px;">
-            <div style="flex: 1;">
-              <h4 style="margin: 0 0 5px 0;">${item.name}</h4>
-              <p style="margin: 0; color: #666;">₹${item.price}</p>
-            </div>
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <button onclick="updateQuantity('${item.name}', ${item.quantity - 1})" style="background: #ddd; border: none; width: 30px; height: 30px; border-radius: 3px; cursor: pointer;">-</button>
-              <span>${item.quantity}</span>
-              <button onclick="updateQuantity('${item.name}', ${item.quantity + 1})" style="background: #ddd; border: none; width: 30px; height: 30px; border-radius: 3px; cursor: pointer;">+</button>
-              <button onclick="removeFromCart('${item.name}')" style="background: #ff4444; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; margin-left: 10px;">Remove</button>
-            </div>
-          </div>
-        `).join('');
-      
-      cartTotal.textContent = totalPrice.toFixed(2);
-    }
-    
-    function toggleCart() {
-      const modal = document.getElementById('cartModal');
-      modal.style.display = modal.style.display === 'none' ? 'block' : 'none';
-    }
-    
-    function showAddedToCartMessage(itemName) {
-      const message = document.createElement('div');
-      message.innerHTML = `${itemName} added to cart!`;
-      message.style.cssText = 'position: fixed; top: 20px; right: 20px; background: #4CAF50; color: white; padding: 15px; border-radius: 5px; z-index: 1001;';
-      document.body.appendChild(message);
-      setTimeout(() => message.remove(), 3000);
-    }
-    
-    function checkout() {
-      if (cart.length === 0) {
-        alert('Your cart is empty!');
-        return;
-      }
-      alert('Thank you for your order! Total: ₹' + cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2));
-      cart = [];
-      updateCartUI();
-      toggleCart();
-    }
-    
-    function bookTable(event) {
-      event.preventDefault();
-      
-      // Get form data
-      const name = document.getElementById('customerName').value;
-      const phone = document.getElementById('phoneNumber').value;
-      const email = document.getElementById('customerEmail').value;
-      const persons = document.getElementById('persons').value;
-      const date = document.getElementById('bookingDate').value;
-      
-      // Validate form
-      if (!name || !phone || !email || !persons || !date) {
-        alert('Please fill all fields');
-        return false;
-      }
-      
-      // Email template parameters
-      const templateParams = {
-        customer_name: name,
-        customer_email: email,
-        customer_phone: phone,
-        booking_date: date,
-        number_of_persons: persons,
-        restaurant_name: 'Foody Restaurant',
-        restaurant_location: 'Pune, Maharashtra'
-      };
-      
-      // Send email to customer
-      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-        .then(function(response) {
-          showThankYouModal(name, email, phone, persons, date);
-          document.getElementById('bookingForm').reset();
-        }, function(error) {
-          showThankYouModal(name, email, phone, persons, date);
-          console.log('Email error:', error);
-          document.getElementById('bookingForm').reset();
-        });
-      
-      return false;
-    }
-    
-    // Show thank you modal with booking details
-    function showThankYouModal(name, email, phone, persons, date) {
-      const bookingDetails = document.getElementById('bookingDetails');
-      const formattedDate = new Date(date).toLocaleDateString('en-IN', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-      
-      bookingDetails.innerHTML = `
-        <strong>Booking Details:</strong><br>
-        <strong>Name:</strong> ${name}<br>
-        <strong>Email:</strong> ${email}<br>
-        <strong>Phone:</strong> ${phone}<br>
-        <strong>Date:</strong> ${formattedDate}<br>
-        <strong>Persons:</strong> ${persons}<br>
-        <strong>Restaurant:</strong> Foody Restaurant, Pune
-      `;
-      
-      document.getElementById('thankYouModal').style.display = 'block';
-    }
-    
-    // Close thank you modal
-    function closeThankYouModal() {
-      document.getElementById('thankYouModal').style.display = 'none';
-    }
-    
-    // Search functionality
-    function toggleSearchDropdown() {
-      const dropdown = document.getElementById('searchDropdown');
-      const isActive = dropdown.classList.contains('active');
-      
-      if (isActive) {
-        dropdown.classList.remove('active');
-      } else {
-        dropdown.classList.add('active');
-        setTimeout(() => {
-          document.getElementById('searchInput').focus();
-        }, 100);
-      }
-    }
-    
-    function performSearch(event) {
-      event.preventDefault();
-      const searchTerm = document.getElementById('searchInput').value.trim();
-      if (searchTerm) {
-        window.location.href = `menu.html?search=${encodeURIComponent(searchTerm)}`;
-      }
-      return false;
-    }
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(event) {
-      const dropdown = document.getElementById('searchDropdown');
-      const searchBtn = document.querySelector('.nav_search-btn');
-      
-      if (dropdown && !dropdown.contains(event.target) && !searchBtn.contains(event.target)) {
-        dropdown.classList.remove('active');
-      }
-    });
-    
-    // Scroll animation function
-    function animateOnScroll() {
-      const elements = document.querySelectorAll('.fade-in, .slide-left, .slide-right, .bounce-in');
-      
-      elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 150;
-        
-        if (elementTop < window.innerHeight - elementVisible) {
-          element.classList.add('visible');
-        }
-      });
-    }
-    
-    // Sticky navigation function
-    function stickyNavigation() {
-      const header = document.querySelector('.header_section');
-      const heroArea = document.querySelector('.hero_area');
-      const scrollPosition = window.scrollY;
-      
-      if (scrollPosition > 100) {
-        header.classList.add('sticky');
-        document.body.classList.add('sticky-offset');
-      } else {
-        header.classList.remove('sticky');
-        document.body.classList.remove('sticky-offset');
-      }
-    }
-    
-    // Run on scroll
-    window.addEventListener('scroll', function() {
-      animateOnScroll();
-      stickyNavigation();
-    });
-    
-    // Set minimum date to today and add cart handlers
-    document.addEventListener('DOMContentLoaded', function() {
-      const today = new Date().toISOString().split('T')[0];
-      document.getElementById('bookingDate').setAttribute('min', today);
-      
-      // Add click handlers to add to cart buttons
-      const products = [
-        { name: 'Delicious Pizza', price: 299, image: 'images/f1.png' },
-        { name: 'Delicious Burger', price: 199, image: 'images/f2.png' },
-        { name: 'Delicious Pizza', price: 249, image: 'images/f3.png' }
-      ];
-      
-      const addToCartButtons = document.querySelectorAll('.food_section .options a');
-      addToCartButtons.forEach((button, index) => {
-        if (products[index]) {
-          button.onclick = function(e) {
-            e.preventDefault();
-            addToCart(products[index].name, products[index].price, products[index].image);
-          };
-        }
-      });
-      
-      // Initialize animations
-      setTimeout(animateOnScroll, 100);
-    });
-  </script>
+
 
 </body>
 
