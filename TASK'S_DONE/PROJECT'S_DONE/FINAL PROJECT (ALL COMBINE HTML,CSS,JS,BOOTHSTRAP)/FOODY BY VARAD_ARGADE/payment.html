@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Payment - Foody</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <style>
+    .payment-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .payment-method {
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .payment-method:hover, .payment-method.selected {
+      border-color: #ffbe33;
+      background: #fff8e1;
+    }
+    .order-summary {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body class="sub_page">
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="images/hero-bg.jpg" alt="">
+    </div>
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="index.html">
+            <span>Foody</span>
+          </a>
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="menu.html">Menu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <section class="layout_padding">
+    <div class="container">
+      <div class="payment-container">
+        <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Complete Your Payment</h2>
+        
+        <div class="order-summary" style="background: white; border: 2px dashed #ccc; font-family: 'Courier New', monospace;">
+          <div style="text-align: center; border-bottom: 1px dashed #ccc; padding-bottom: 15px; margin-bottom: 15px;">
+            <h3 style="margin: 0; font-weight: bold;">FOODY RECEIPT</h3>
+            <p style="margin: 5px 0; font-size: 14px;">Pune, Maharashtra, India</p>
+            <p style="margin: 5px 0; font-size: 14px;">Phone: +91 98765 43210</p>
+            <p style="margin: 5px 0; font-size: 14px;" id="receiptDate"></p>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <div style="display: flex; justify-content: space-between; font-weight: bold; border-bottom: 1px solid #ccc; padding-bottom: 5px;">
+              <span>ITEM</span>
+              <span>QTY</span>
+              <span>PRICE</span>
+              <span>TOTAL</span>
+            </div>
+            <div id="orderItems"></div>
+          </div>
+          <div style="border-top: 1px dashed #ccc; padding-top: 10px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+              <span>Subtotal:</span>
+              <span>₹<span id="subtotal">0</span></span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+              <span>Delivery Fee:</span>
+              <span>₹<span id="deliveryFee">20</span></span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+              <span>GST (5%):</span>
+              <span>₹<span id="gst">0</span></span>
+            </div>
+            <div style="border-top: 1px solid #333; padding-top: 10px; display: flex; justify-content: space-between; font-weight: bold; font-size: 18px;">
+              <span>TOTAL AMOUNT:</span>
+              <span>₹<span id="totalAmount">0</span></span>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 15px; border-top: 1px dashed #ccc; padding-top: 15px; font-size: 12px;">
+            <p>Thank you for choosing Foody!</p>
+            <p>Order ID: #<span id="orderId"></span></p>
+          </div>
+        </div>
+
+        <h4>Select Payment Method</h4>
+        <div class="payment-method" onclick="selectPayment('upi')">
+          <input type="radio" name="payment" value="upi" id="upi">
+          <label for="upi" style="margin-left: 10px; cursor: pointer;">
+            <strong>UPI Payment</strong><br>
+            <small>Pay using Google Pay, PhonePe, Paytm, etc.</small>
+          </label>
+        </div>
+        
+        <div class="payment-method" onclick="selectPayment('card')">
+          <input type="radio" name="payment" value="card" id="card">
+          <label for="card" style="margin-left: 10px; cursor: pointer;">
+            <strong>Credit/Debit Card</strong><br>
+            <small>Visa, MasterCard, RuPay accepted</small>
+          </label>
+        </div>
+        
+        <div class="payment-method" onclick="selectPayment('cod')">
+          <input type="radio" name="payment" value="cod" id="cod">
+          <label for="cod" style="margin-left: 10px; cursor: pointer;">
+            <strong>Cash on Delivery</strong><br>
+            <small>Pay when your order arrives</small>
+          </label>
+        </div>
+
+        <div style="margin-top: 30px; text-align: center;">
+          <button onclick="processPayment()" style="background: #ffbe33; color: white; border: none; padding: 15px 40px; border-radius: 8px; font-size: 18px; cursor: pointer; margin-right: 15px;">
+            Pay Now
+          </button>
+          <button onclick="goBack()" style="background: #6c757d; color: white; border: none; padding: 15px 40px; border-radius: 8px; font-size: 18px; cursor: pointer;">
+            Back to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script>
+    let selectedPayment = '';
+    
+    function selectPayment(method) {
+      selectedPayment = method;
+      document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('selected'));
+      event.currentTarget.classList.add('selected');
+      document.getElementById(method).checked = true;
+    }
+    
+    function loadOrderSummary() {
+      const cart = JSON.parse(localStorage.getItem('foodyCart') || '[]');
+      const orderItems = document.getElementById('orderItems');
+      
+      if (cart.length === 0) {
+        window.location.href = 'index.html';
+        return;
+      }
+      
+      // Generate order ID and date
+      document.getElementById('orderId').textContent = 'FD' + Date.now().toString().slice(-6);
+      document.getElementById('receiptDate').textContent = new Date().toLocaleString('en-IN');
+      
+      let subtotal = 0;
+      orderItems.innerHTML = cart.map(item => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+        return `
+          <div style="display: flex; justify-content: space-between; padding: 5px 0; font-size: 14px;">
+            <span style="flex: 2;">${item.name}</span>
+            <span style="flex: 0.5; text-align: center;">${item.quantity}</span>
+            <span style="flex: 1; text-align: right;">₹${item.price}</span>
+            <span style="flex: 1; text-align: right;">₹${itemTotal}</span>
+          </div>
+        `;
+      }).join('');
+      
+      const deliveryFee = 20;
+      const gst = Math.round(subtotal * 0.05);
+      const total = subtotal + deliveryFee + gst;
+      
+      document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+      document.getElementById('gst').textContent = gst.toFixed(2);
+      document.getElementById('totalAmount').textContent = total.toFixed(2);
+    }
+    
+    function processPayment() {
+      if (!selectedPayment) {
+        alert('Please select a payment method');
+        return;
+      }
+      
+      const total = document.getElementById('totalAmount').textContent;
+      
+      // Simulate payment processing
+      const processingMsg = document.createElement('div');
+      processingMsg.innerHTML = 'Processing payment...';
+      processingMsg.style.cssText = 'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); z-index: 1000;';
+      document.body.appendChild(processingMsg);
+      
+      setTimeout(() => {
+        processingMsg.remove();
+        localStorage.removeItem('foodyCart');
+        alert(`Payment successful! ₹${total} paid via ${selectedPayment.toUpperCase()}. Your order will be delivered soon!`);
+        window.location.href = 'index.html';
+      }, 2000);
+    }
+    
+    function goBack() {
+      window.history.back();
+    }
+    
+    document.addEventListener('DOMContentLoaded', loadOrderSummary);
+  </script>
+</body>
+</html>

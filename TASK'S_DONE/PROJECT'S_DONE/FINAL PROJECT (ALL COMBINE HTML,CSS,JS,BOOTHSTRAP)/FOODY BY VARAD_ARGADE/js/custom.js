@@ -94,6 +94,8 @@ function addToCart(name, price, image) {
     } else {
         cart.push({ name, price, image, quantity: 1 });
     }
+    
+    localStorage.setItem('foodyCart', JSON.stringify(cart));
     updateCartUI();
     showAddedToCartMessage(name);
 }
@@ -101,6 +103,7 @@ function addToCart(name, price, image) {
 function removeFromCart(name) {
     if (!checkAuth()) return;
     cart = cart.filter(item => item.name !== name);
+    localStorage.setItem('foodyCart', JSON.stringify(cart));
     updateCartUI();
 }
 
@@ -109,6 +112,7 @@ function updateQuantity(name, quantity) {
     const item = cart.find(item => item.name === name);
     if (item) {
         item.quantity = Math.max(1, quantity);
+        localStorage.setItem('foodyCart', JSON.stringify(cart));
         updateCartUI();
     }
 }
@@ -117,20 +121,21 @@ function updateCartUI() {
     const cartCount = document.getElementById('cart-count');
     const cartItems = document.getElementById('cartItems');
     const cartTotal = document.getElementById('cartTotal');
-    
-    if (!cartCount || !cartItems || !cartTotal) return;
+    const cartItemsDisplay = document.getElementById('cartItemsDisplay');
     
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     
-    if (totalItems > 0) {
-        cartCount.style.display = 'flex';
-        cartCount.textContent = totalItems;
-    } else {
-        cartCount.style.display = 'none';
+    if (cartCount) {
+        if (totalItems > 0) {
+            cartCount.style.display = 'flex';
+            cartCount.textContent = totalItems;
+        } else {
+            cartCount.style.display = 'none';
+        }
     }
     
-    cartItems.innerHTML = cart.length === 0 ? '<p>Your cart is empty</p>' : 
+    const cartHTML = cart.length === 0 ? '<p>Your cart is empty</p>' : 
         cart.map(item => `
             <div style="display: flex; align-items: center; padding: 10px; border-bottom: 1px solid #eee;">
                 <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 5px; margin-right: 15px;">
@@ -147,7 +152,19 @@ function updateCartUI() {
             </div>
         `).join('');
     
-    cartTotal.textContent = totalPrice.toFixed(2);
+    if (cartItems) {
+        cartItems.innerHTML = cartHTML;
+    }
+    
+    if (cartItemsDisplay) {
+        cartItemsDisplay.innerHTML = cart.length === 0 ? 
+            '<p style="text-align: center; color: #666; font-size: 18px; margin-top: 100px;">Your cart is empty. Add some delicious items from our menu!</p>' :
+            cartHTML + `<div style="border-top: 2px solid #ffbe33; padding-top: 15px; margin-top: 15px; text-align: center;"><h3>Total: ₹${totalPrice.toFixed(2)}</h3></div>`;
+    }
+    
+    if (cartTotal) {
+        cartTotal.textContent = totalPrice.toFixed(2);
+    }
 }
 
 function toggleCart() {
@@ -172,10 +189,7 @@ function checkout() {
         alert('Your cart is empty!');
         return;
     }
-    alert('Thank you for your order! Total: ₹' + cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2));
-    cart = [];
-    updateCartUI();
-    toggleCart();
+    window.location.href = 'payment.html';
 }
 
 // Authentication system
@@ -575,6 +589,13 @@ function initializeLoginState() {
         isLoggedIn = true;
         userProfilePic = userData.profilePic;
         updateUserDisplay();
+    }
+    
+    // Load cart from localStorage
+    const storedCart = localStorage.getItem('foodyCart');
+    if (storedCart) {
+        cart = JSON.parse(storedCart);
+        updateCartUI();
     }
 }
 
