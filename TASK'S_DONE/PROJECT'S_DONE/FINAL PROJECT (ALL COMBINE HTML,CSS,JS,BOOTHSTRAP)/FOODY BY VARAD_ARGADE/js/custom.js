@@ -181,9 +181,8 @@ function checkout() {
 // Authentication system
 function checkAuth() {
     if (!isLoggedIn) {
-        showNotification('Please login to access this feature', 'info');
-        showLogin();
-        toggleAuthModal();
+        alert('Please go to home page to login first!');
+        window.location.href = 'index.html';
         return false;
     }
     return true;
@@ -241,6 +240,7 @@ function handleLogin(event) {
             if (userData.email === email && userData.password === password) {
                 isLoggedIn = true;
                 userProfilePic = userData.profilePic;
+                localStorage.setItem('foodyLoginState', 'true');
                 updateUserDisplay();
                 showNotification(`Welcome back ${userData.name}!`, 'success');
                 toggleAuthModal();
@@ -301,13 +301,18 @@ function showUserMenu() {
 function logout() {
     isLoggedIn = false;
     userProfilePic = null;
+    localStorage.setItem('foodyLoginState', 'false');
     const profilePic = document.getElementById('profilePic');
     const userIcon = document.getElementById('userIcon');
+    const userDropdown = document.getElementById('userDropdown');
     
     if (profilePic && userIcon) {
         profilePic.style.display = 'none';
         userIcon.style.display = 'block';
         userIcon.className = 'fa fa-user';
+    }
+    if (userDropdown) {
+        userDropdown.style.display = 'none';
     }
     showNotification('Logged out successfully', 'success');
 }
@@ -358,6 +363,7 @@ function handleSignup(event) {
             profilePic: userProfilePic
         };
         localStorage.setItem('foodyUser', JSON.stringify(userData));
+        localStorage.setItem('foodyLoginState', 'true');
         
         isLoggedIn = true;
         updateUserDisplay();
@@ -560,8 +566,29 @@ document.addEventListener('click', function(event) {
     }
 });
 
+// Initialize login state from localStorage
+function initializeLoginState() {
+    const storedUser = localStorage.getItem('foodyUser');
+    const loginState = localStorage.getItem('foodyLoginState');
+    
+    if (storedUser && loginState === 'true') {
+        const userData = JSON.parse(storedUser);
+        isLoggedIn = true;
+        userProfilePic = userData.profilePic;
+        updateUserDisplay();
+    }
+}
+
+// Save login state to localStorage
+function saveLoginState() {
+    localStorage.setItem('foodyLoginState', isLoggedIn.toString());
+}
+
 // Initialize on DOM ready
 $(document).ready(function() {
+    // Initialize login state first
+    initializeLoginState();
+    
     const today = new Date().toISOString().split('T')[0];
     const bookingDate = document.getElementById('bookingDate');
     if (bookingDate) {
