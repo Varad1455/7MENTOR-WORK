@@ -30,6 +30,47 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <style>
+    .search-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      min-width: 300px;
+      z-index: 1000;
+      transform: translateY(-10px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .search-dropdown.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    .search-dropdown input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    .search-dropdown button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      background: #ffbe33;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+
 </head>
 
 <body class="sub_page">
@@ -126,13 +167,19 @@
                 </svg>
                 <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background: #ffbe33; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center; display: none;">0</span>
               </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+              <div style="position: relative;">
+                <button class="btn my-2 my-sm-0 nav_search-btn" type="button" onclick="toggleSearchDropdown()">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
-              </form>
-              <a href="" class="order_online">
-                Order Online
+                <div id="searchDropdown" class="search-dropdown">
+                  <form onsubmit="return performSearch(event)">
+                    <input type="text" id="searchInput" placeholder="Search for food items..." required>
+                    <button type="submit">Search</button>
+                  </form>
+                </div>
+              </div>
+              <a href="/index.html" class="order_online">
+                GO_TO HOME
               </a>
             </div>
           </div>
@@ -901,7 +948,7 @@
               Foody
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              India's premier food delivery platform bringing delicious meals to your doorstep. Quality food, affordable prices, and fast delivery across Pune and beyond.
             </p>
             <div class="footer_social">
               <a href="">
@@ -1069,8 +1116,77 @@
       toggleCart();
     }
     
+    // Search functionality
+    function toggleSearchDropdown() {
+      const dropdown = document.getElementById('searchDropdown');
+      const isActive = dropdown.classList.contains('active');
+      
+      if (isActive) {
+        dropdown.classList.remove('active');
+      } else {
+        dropdown.classList.add('active');
+        setTimeout(() => {
+          document.getElementById('searchInput').focus();
+        }, 100);
+      }
+    }
+    
+    function performSearch(event) {
+      event.preventDefault();
+      const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+      if (searchTerm) {
+        filterFoodItems(searchTerm);
+        document.getElementById('searchDropdown').classList.remove('active');
+      }
+      return false;
+    }
+    
+    function filterFoodItems(searchTerm) {
+      const foodItems = document.querySelectorAll('.filters-content .grid > div');
+      let hasResults = false;
+      
+      foodItems.forEach(item => {
+        const itemName = item.querySelector('h5').textContent.toLowerCase();
+        if (itemName.includes(searchTerm)) {
+          item.style.display = 'block';
+          hasResults = true;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      
+      if (!hasResults) {
+        alert('No food items found matching your search.');
+        showAllItems();
+      }
+    }
+    
+    function showAllItems() {
+      const foodItems = document.querySelectorAll('.filters-content .grid > div');
+      foodItems.forEach(item => {
+        item.style.display = 'block';
+      });
+    }
+    
     // Add click handlers to all add to cart buttons
     document.addEventListener('DOMContentLoaded', function() {
+      // Handle search from URL parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const searchTerm = urlParams.get('search');
+      if (searchTerm) {
+        document.getElementById('searchInput').value = searchTerm;
+        filterFoodItems(searchTerm.toLowerCase());
+      }
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(event) {
+        const dropdown = document.getElementById('searchDropdown');
+        const searchBtn = document.querySelector('.nav_search-btn');
+        
+        if (dropdown && !dropdown.contains(event.target) && !searchBtn.contains(event.target)) {
+          dropdown.classList.remove('active');
+        }
+      });
       const products = [
         { name: 'Delicious Pizza', price: 299, image: 'images/f1.png' },
         { name: 'Delicious Burger', price: 199, image: 'images/f2.png' },

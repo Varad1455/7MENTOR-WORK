@@ -30,6 +30,45 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s ease;
+    }
+    .slide-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .slide-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease;
+    }
+    .slide-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .form-field {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    .form-field.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
 </head>
 
 <body class="sub_page">
@@ -144,25 +183,25 @@
   <!-- book section -->
   <section class="book_section layout_padding">
     <div class="container">
-      <div class="heading_container">
+      <div class="heading_container fade-in">
         <h2>
           Book A Table
         </h2>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <div class="form_container">
+          <div class="form_container slide-left">
             <form action="">
-              <div>
+              <div class="form-field">
                 <input type="text" class="form-control" placeholder="Your Name" />
               </div>
-              <div>
+              <div class="form-field">
                 <input type="text" class="form-control" placeholder="Phone Number" />
               </div>
-              <div>
+              <div class="form-field">
                 <input type="email" class="form-control" placeholder="Your Email" />
               </div>
-              <div>
+              <div class="form-field">
                 <select class="form-control nice-select wide">
                   <option value="" disabled selected>
                     How many persons?
@@ -181,10 +220,10 @@
                   </option>
                 </select>
               </div>
-              <div>
+              <div class="form-field">
                 <input type="date" class="form-control">
               </div>
-              <div class="btn_box">
+              <div class="btn_box form-field">
                 <button>
                   Book Now
                 </button>
@@ -193,7 +232,7 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="map_container ">
+          <div class="map_container slide-right">
             <div id="googleMap"></div>
           </div>
         </div>
@@ -245,7 +284,7 @@
               Foody
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              India's premier food delivery platform bringing delicious meals to your doorstep. Quality food, affordable prices, and fast delivery across Pune and beyond.
             </p>
             <div class="footer_social">
               <a href="">
@@ -309,6 +348,37 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
+
+  <script>
+    // Scroll animation function
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.fade-in, .slide-left, .slide-right, .form-field');
+      
+      elements.forEach((element, index) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          // Add staggered delay for form fields
+          if (element.classList.contains('form-field')) {
+            setTimeout(() => {
+              element.classList.add('visible');
+            }, index * 100);
+          } else {
+            element.classList.add('visible');
+          }
+        }
+      });
+    }
+    
+    // Run on scroll
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Run on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(animateOnScroll, 100);
+    });
+  </script>
 
 </body>
 

@@ -30,6 +30,45 @@
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
 
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s ease;
+    }
+    .slide-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .slide-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease;
+    }
+    .slide-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .bounce-in {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    .bounce-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
+
 </head>
 
 <body class="sub_page">
@@ -148,24 +187,21 @@
 
       <div class="row">
         <div class="col-md-6 ">
-          <div class="img-box">
+          <div class="img-box slide-left">
             <img src="images/about-img.png" alt="">
           </div>
         </div>
         <div class="col-md-6">
-          <div class="detail-box">
-            <div class="heading_container">
+          <div class="detail-box slide-right">
+            <div class="heading_container fade-in">
               <h2>
                 We Are Foody
               </h2>
             </div>
-            <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+            <p class="fade-in">
+              Welcome to Foody - India's premier food delivery platform that brings delicious, authentic flavors right to your doorstep. Founded with a passion for connecting food lovers with their favorite cuisines, we specialize in delivering fresh, hot meals from the best local restaurants across Pune and beyond. Our commitment to quality, affordability, and lightning-fast delivery has made us the trusted choice for thousands of satisfied customers. From traditional Indian delicacies to international favorites, Foody ensures every meal is a delightful experience that satisfies your cravings and exceeds your expectations.
             </p>
-            <a href="">
+            <a href="" class="bounce-in">
               Read More
             </a>
           </div>
@@ -219,7 +255,7 @@
               Foody
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              India's premier food delivery platform bringing delicious meals to your doorstep. Quality food, affordable prices, and fast delivery across Pune and beyond.
             </p>
             <div class="footer_social">
               <a href="">
@@ -285,6 +321,30 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
+
+  <script>
+    // Scroll animation function
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.fade-in, .slide-left, .slide-right, .bounce-in');
+      
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('visible');
+        }
+      });
+    }
+    
+    // Run on scroll
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Run on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(animateOnScroll, 100);
+    });
+  </script>
 
 </body>
 
