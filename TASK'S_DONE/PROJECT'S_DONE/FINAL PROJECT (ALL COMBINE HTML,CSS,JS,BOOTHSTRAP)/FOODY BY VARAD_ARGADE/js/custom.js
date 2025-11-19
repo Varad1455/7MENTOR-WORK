@@ -181,8 +181,7 @@ function checkout() {
 // Authentication system
 function checkAuth() {
     if (!isLoggedIn) {
-        alert('Please go to home page to login first!');
-        window.location.href = 'index.html';
+        window.location.href = 'index.html?login=true';
         return false;
     }
     return true;
@@ -588,6 +587,15 @@ function saveLoginState() {
 $(document).ready(function() {
     // Initialize login state first
     initializeLoginState();
+    
+    // Check if redirected for login
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('login') === 'true' && !isLoggedIn) {
+        setTimeout(() => {
+            showLogin();
+            toggleAuthModal();
+        }, 500);
+    }
     
     const today = new Date().toISOString().split('T')[0];
     const bookingDate = document.getElementById('bookingDate');
