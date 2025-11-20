@@ -604,8 +604,26 @@ function saveLoginState() {
     localStorage.setItem('foodyLoginState', isLoggedIn.toString());
 }
 
+// Social media coming soon popup
+function showSocialComingSoon(platform) {
+    alert(`Coming Soon on ${platform}! 🚀\n\nWe're working hard to bring Foody to ${platform}. Stay tuned for updates!`);
+}
+
 // Initialize on DOM ready
 $(document).ready(function() {
+    // Add click handlers for social media icons
+    $('.footer_social a').click(function(e) {
+        e.preventDefault();
+        const iconClass = $(this).find('i').attr('class');
+        let platform = 'Social Media';
+        
+        if (iconClass.includes('facebook')) platform = 'Facebook';
+        else if (iconClass.includes('twitter')) platform = 'Twitter';
+        else if (iconClass.includes('instagram')) platform = 'Instagram';
+        
+        showSocialComingSoon(platform);
+    });
+    
     // Initialize login state first
     initializeLoginState();
     
