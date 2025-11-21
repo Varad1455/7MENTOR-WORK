@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
   <!-- Site Metas -->
   <meta name="keywords" content="" />
   <meta name="description" content="" />
@@ -170,6 +170,268 @@
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 190, 51, 0.7); }
+      70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 190, 51, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 190, 51, 0); }
+    }
+    
+    @keyframes bounce {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-3px); }
+    }
+    
+    .animated-menu-btn:hover, .animated-about-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 5px 15px rgba(255, 190, 51, 0.4);
+      text-decoration: none;
+      color: white;
+    }
+    
+    /* Auth Modal Styles */
+    .auth-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+    }
+    
+    .auth-container {
+      background: white;
+      margin: 2% auto;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 400px;
+      max-height: 90vh;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    
+    .auth-header {
+      background: linear-gradient(135deg, #ffbe33, #ff9800);
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .close-btn {
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    .form-tabs {
+      display: flex;
+      background: #f5f5f5;
+    }
+    
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    .tab-btn.active {
+      background: white;
+      color: #ffbe33;
+    }
+    
+    .form-content {
+      padding: 20px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+    
+    .input-group {
+      position: relative;
+      margin-bottom: 15px;
+    }
+    
+    .input-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+    }
+    
+    .input-group input {
+      width: 100%;
+      padding: 12px 12px 12px 40px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    
+    .password-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #999;
+    }
+    
+    .profile-upload {
+      margin-bottom: 15px;
+    }
+    
+    .profile-upload label {
+      display: block;
+      margin-bottom: 8px;
+      color: #666;
+      font-size: 14px;
+    }
+    
+    .file-upload input {
+      display: none;
+    }
+    
+    .file-upload-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px;
+      border: 2px dashed #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #666;
+      text-align: center;
+      justify-content: center;
+    }
+    
+    .file-upload-btn:hover {
+      border-color: #ffbe33;
+      color: #ffbe33;
+    }
+    
+    .profile-preview {
+      margin-top: 10px;
+      text-align: center;
+    }
+    
+    .profile-preview img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .checkbox-container input {
+      display: none;
+    }
+    
+    .checkmark {
+      width: 16px;
+      height: 16px;
+      border: 2px solid #ddd;
+      border-radius: 3px;
+      margin-right: 8px;
+      position: relative;
+    }
+    
+    .checkbox-container input:checked + .checkmark {
+      background: #ffbe33;
+      border-color: #ffbe33;
+    }
+    
+    .checkbox-container input:checked + .checkmark:after {
+      content: '✓';
+      position: absolute;
+      color: white;
+      font-size: 10px;
+      top: -2px;
+      left: 2px;
+    }
+    
+    .forgot-link, .terms-link {
+      color: #ffbe33;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    
+    .auth-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+    
+    .login-btn {
+      background: linear-gradient(135deg, #ffbe33, #ff9800);
+      color: white;
+    }
+    
+    .signup-btn {
+      background: linear-gradient(135deg, #4CAF50, #45a049);
+      color: white;
+    }
+    
+    .auth-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .password-strength {
+      margin-bottom: 15px;
+    }
+    
+    .strength-bar {
+      height: 4px;
+      background: #eee;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 5px;
+    }
+    
+    .strength-fill {
+      height: 100%;
+      width: 0%;
+      transition: all 0.3s;
+    }
+    
+    .strength-text {
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .match-indicator {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+    }
   </style>
 
 </head>
@@ -200,9 +462,6 @@
                 <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="about.html">About</a>
               </li>
             </ul>
@@ -212,7 +471,8 @@
                   <img id="profilePic" src="" alt="Profile" style="display: none; width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
                   <i id="userIcon" class="fa fa-user" aria-hidden="true"></i>
                 </a>
-                <div id="userDropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid #ddd; border-radius: 5px; padding: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); min-width: 120px; z-index: 1000;">
+                <div id="userDropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid #ddd; border-radius: 5px; padding: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); min-width: 150px; z-index: 1000;">
+                  <button onclick="showProfileModal()" style="width: 100%; padding: 8px; background: #ffbe33; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 14px; margin-bottom: 5px;">Edit Profile</button>
                   <button onclick="logout()" style="width: 100%; padding: 8px; background: #ff4444; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 14px;">Logout</button>
                 </div>
               </div>
@@ -282,8 +542,9 @@
                   </form>
                 </div>
               </div>
-              <a href="menu.html" class="order_online" onclick="return checkAuthAndRedirect(event)">
-                OUR_<b>MENU'S</b>
+              <a href="menu.html" class="animated-menu-btn" onclick="return checkAuthAndRedirect(event)" style="position: relative; display: flex; align-items: center; gap: 8px; padding: 8px 15px; background: linear-gradient(135deg, #ffbe33, #ff9800); color: white; border-radius: 25px; text-decoration: none; transition: all 0.3s ease; animation: pulse 2s infinite;">
+                <i class="fa fa-cutlery" style="font-size: 16px; animation: bounce 1s ease-in-out infinite alternate;"></i>
+                <span style="font-size: 12px; font-weight: bold;">OUR MENU'S</span>
               </a>
             </div>
           </div>
@@ -806,8 +1067,9 @@
             <p class="fade-in">
               Welcome to Foody - India's premier food delivery platform that brings delicious, authentic flavors right to your doorstep. Founded with a passion for connecting food lovers with their favorite cuisines, we specialize in delivering fresh, hot meals from the best local restaurants across Pune and beyond. Our commitment to quality, affordability, and lightning-fast delivery has made us the trusted choice for thousands of satisfied customers. From traditional Indian delicacies to international favorites, Foody ensures every meal is a delightful experience that satisfies your cravings and exceeds your expectations.
             </p>
-            <a href="/about.html" class="bounce-in">
-              Know More About <b>FOODY..!</b>
+            <a href="about.html" class="animated-about-btn bounce-in" style="position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #ffbe33, #ff9800); color: white; border-radius: 25px; text-decoration: none; transition: all 0.3s ease; animation: pulse 2s infinite; margin-top: 20px;">
+              <i class="fa fa-info-circle" style="font-size: 18px; animation: bounce 1s ease-in-out infinite alternate;"></i>
+              <span style="font-size: 14px; font-weight: bold;">Know More About FOODY..!</span>
             </a>
           </div>
         </div>
@@ -1036,6 +1298,8 @@
   <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
   <!-- nice select -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <!-- custom js -->
   <script src="js/custom.js"></script>
   <!-- Google Map -->
@@ -1043,64 +1307,197 @@
   </script>
   <!-- End Google Map -->
   
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  
-  <!-- Auth Modal -->
-  <div id="authModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
-    <div style="background-color: white; margin: 5% auto; padding: 30px; border-radius: 10px; width: 90%; max-width: 400px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <h2 id="authTitle" style="margin: 0; color: #333;">Login to Foody</h2>
-        <span onclick="toggleAuthModal()" style="font-size: 28px; font-weight: bold; cursor: pointer; color: #999;">&times;</span>
+  <!-- Modern Auth Modal -->
+  <div id="authModal" class="auth-modal">
+    <div class="auth-container">
+      <div class="auth-header">
+        <h2 id="authTitle">Welcome to Foody</h2>
+        <span onclick="toggleAuthModal()" class="close-btn">&times;</span>
       </div>
       
       <!-- Login Form -->
-      <div id="loginForm">
-        <form onsubmit="return handleLogin(event)">
-          <div style="margin-bottom: 15px;">
-            <input type="email" id="loginEmail" placeholder="Email Address" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
-          </div>
-          <div style="margin-bottom: 15px;">
-            <input type="password" id="loginPassword" placeholder="Password" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
-          </div>
-          <div style="margin-bottom: 20px;">
-            <label style="display: block; margin-bottom: 5px; color: #666; font-size: 14px;">Profile Picture (Optional)</label>
-            <input type="file" id="profilePicInput" accept="image/*" onchange="previewProfilePic(event)" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
-          </div>
-          <button type="submit" style="width: 100%; padding: 12px; background: #ffbe33; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-bottom: 15px;">Login</button>
-        </form>
-        <div style="text-align: center; color: #666;">
-          <p>Don't have an account? <a href="#" onclick="showSignup()" style="color: #ffbe33; text-decoration: none;">Sign up</a></p>
+      <div id="loginForm" class="auth-form">
+        <div class="form-tabs">
+          <button type="button" class="tab-btn active" onclick="showLogin()">Login</button>
+          <button type="button" class="tab-btn" onclick="showSignup()">Sign Up</button>
         </div>
+        
+        <form onsubmit="return handleLogin(event)" class="form-content">
+          <div class="input-group">
+            <i class="fa fa-envelope input-icon"></i>
+            <input type="email" id="loginEmail" placeholder="Email Address" required>
+          </div>
+          
+          <div class="input-group">
+            <i class="fa fa-lock input-icon"></i>
+            <input type="password" id="loginPassword" placeholder="Password" required oninput="showProfileUpload()">
+            <i class="fa fa-eye password-toggle" onclick="togglePassword('loginPassword')"></i>
+          </div>
+          
+          <div id="loginProfileUpload" class="profile-upload" style="display: none;">
+            <label>Profile Picture (Optional)</label>
+            <div class="file-upload">
+              <input type="file" id="profilePicInput" accept="image/*" onchange="previewProfilePic(event)">
+              <div class="file-upload-btn" onclick="document.getElementById('profilePicInput').click()">
+                <i class="fa fa-camera"></i>
+                <span>Choose Photo</span>
+              </div>
+              <div id="profilePreview" class="profile-preview"></div>
+            </div>
+          </div>
+          
+          <div class="form-options">
+            <label class="checkbox-container">
+              <input type="checkbox" id="rememberMe">
+              <span class="checkmark"></span>
+              Remember me
+            </label>
+            <a href="#" class="forgot-link" onclick="showForgotPassword()">Forgot Password?</a>
+          </div>
+          
+          <button type="submit" class="auth-btn login-btn">
+            <span>Login to Foody</span>
+            <i class="fa fa-arrow-right"></i>
+          </button>
+        </form>
       </div>
       
       <!-- Signup Form -->
-      <div id="signupForm" style="display: none;">
-        <form onsubmit="return handleSignup(event)">
-          <div style="margin-bottom: 15px;">
-            <input type="text" id="signupName" placeholder="Full Name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
-          </div>
-          <div style="margin-bottom: 15px;">
-            <input type="email" id="signupEmail" placeholder="Email Address" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
-          </div>
-          <div style="margin-bottom: 15px;">
-            <input type="tel" id="signupPhone" placeholder="Phone Number" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
-          </div>
-          <div style="margin-bottom: 15px;">
-            <input type="password" id="signupPassword" placeholder="Password" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
-          </div>
-          <div style="margin-bottom: 15px;">
-            <input type="password" id="confirmPassword" placeholder="Confirm Password" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
-          </div>
-          <div style="margin-bottom: 20px;">
-            <label style="display: block; margin-bottom: 5px; color: #666; font-size: 14px;">Profile Picture (Optional)</label>
-            <input type="file" id="signupProfilePic" accept="image/*" onchange="previewSignupPic(event)" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
-          </div>
-          <button type="submit" style="width: 100%; padding: 12px; background: #ffbe33; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-bottom: 15px;">Sign Up</button>
-        </form>
-        <div style="text-align: center; color: #666;">
-          <p>Already have an account? <a href="#" onclick="showLogin()" style="color: #ffbe33; text-decoration: none;">Login</a></p>
+      <div id="signupForm" class="auth-form" style="display: none;">
+        <div class="form-tabs">
+          <button type="button" class="tab-btn" onclick="showLogin()">Login</button>
+          <button type="button" class="tab-btn active" onclick="showSignup()">Sign Up</button>
         </div>
+        
+        <form onsubmit="return handleSignup(event)" class="form-content">
+          <div class="input-group">
+            <i class="fa fa-user input-icon"></i>
+            <input type="text" id="signupName" placeholder="Full Name" required>
+          </div>
+          
+          <div class="input-group">
+            <i class="fa fa-envelope input-icon"></i>
+            <input type="email" id="signupEmail" placeholder="Email Address" required>
+          </div>
+          
+          <div class="input-group">
+            <i class="fa fa-phone input-icon"></i>
+            <input type="tel" id="signupPhone" placeholder="Phone Number" required>
+          </div>
+          
+          <div class="input-group">
+            <i class="fa fa-lock input-icon"></i>
+            <input type="password" id="signupPassword" placeholder="Password" required oninput="checkPasswordStrength(this.value)">
+            <i class="fa fa-eye password-toggle" onclick="togglePassword('signupPassword')"></i>
+          </div>
+          
+          <div class="password-strength">
+            <div class="strength-bar">
+              <div id="strengthIndicator" class="strength-fill"></div>
+            </div>
+            <span id="strengthText" class="strength-text">Password strength</span>
+          </div>
+          
+          <div class="input-group">
+            <i class="fa fa-lock input-icon"></i>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required oninput="checkPasswordMatch()">
+            <i class="fa fa-eye password-toggle" onclick="togglePassword('confirmPassword')"></i>
+            <span id="passwordMatch" class="match-indicator"></span>
+          </div>
+          
+          <div class="profile-upload">
+            <label>Profile Picture (Optional)</label>
+            <div class="file-upload">
+              <input type="file" id="signupProfilePic" accept="image/*" onchange="previewSignupPic(event)">
+              <div class="file-upload-btn" onclick="document.getElementById('signupProfilePic').click()">
+                <i class="fa fa-camera"></i>
+                <span>Choose Photo</span>
+              </div>
+              <div id="signupProfilePreview" class="profile-preview"></div>
+            </div>
+          </div>
+          
+          <div class="form-options">
+            <label class="checkbox-container" onclick="showTermsModal()">
+              <input type="checkbox" id="agreeTerms" required disabled>
+              <span class="checkmark"></span>
+              I agree to <a href="#" class="terms-link" onclick="showTermsModal()">Terms & Conditions</a>
+            </label>
+          </div>
+          
+          <button type="submit" class="auth-btn signup-btn">
+            <span>Create Account</span>
+            <i class="fa fa-user-plus"></i>
+          </button>
+        </form>
+      </div>
+      
+      <!-- Forgot Password Form -->
+      <div id="forgotPasswordForm" class="auth-form" style="display: none;">
+        <div class="form-tabs">
+          <button type="button" class="tab-btn active">Reset Password</button>
+        </div>
+        
+        <form onsubmit="return handleForgotPassword(event)" class="form-content">
+          <div class="input-group">
+            <i class="fa fa-envelope input-icon"></i>
+            <input type="email" id="forgotEmail" placeholder="Enter your email address" required>
+          </div>
+          
+          <button type="submit" class="auth-btn" style="background: linear-gradient(135deg, #17a2b8, #138496);">
+            <span>Send Reset Code</span>
+            <i class="fa fa-paper-plane"></i>
+          </button>
+          
+          <button type="button" onclick="showLogin()" class="auth-btn" style="background: #6c757d; margin-top: 10px;">
+            <span>Back to Login</span>
+            <i class="fa fa-arrow-left"></i>
+          </button>
+        </form>
+      </div>
+      
+      <!-- Reset Password Form -->
+      <div id="resetPasswordForm" class="auth-form" style="display: none;">
+        <div class="form-tabs">
+          <button type="button" class="tab-btn active">Enter New Password</button>
+        </div>
+        
+        <form onsubmit="return handleResetPassword(event)" class="form-content">
+          <div class="input-group">
+            <i class="fa fa-key input-icon"></i>
+            <input type="text" id="resetCode" placeholder="Enter 6-digit verification code" required maxlength="6">
+          </div>
+          
+          <div class="input-group">
+            <i class="fa fa-lock input-icon"></i>
+            <input type="password" id="newPassword" placeholder="New Password" required oninput="checkResetPasswordStrength(this.value)">
+            <i class="fa fa-eye password-toggle" onclick="togglePassword('newPassword')"></i>
+          </div>
+          
+          <div class="password-strength">
+            <div class="strength-bar">
+              <div id="resetStrengthIndicator" class="strength-fill"></div>
+            </div>
+            <span id="resetStrengthText" class="strength-text">Password strength</span>
+          </div>
+          
+          <div class="input-group">
+            <i class="fa fa-lock input-icon"></i>
+            <input type="password" id="confirmNewPassword" placeholder="Confirm New Password" required oninput="checkResetPasswordMatch()">
+            <i class="fa fa-eye password-toggle" onclick="togglePassword('confirmNewPassword')"></i>
+            <span id="resetPasswordMatch" class="match-indicator"></span>
+          </div>
+          
+          <button type="submit" class="auth-btn" style="background: linear-gradient(135deg, #28a745, #20c997);">
+            <span>Reset Password</span>
+            <i class="fa fa-check"></i>
+          </button>
+          
+          <button type="button" onclick="showForgotPassword()" class="auth-btn" style="background: #6c757d; margin-top: 10px;">
+            <span>Back</span>
+            <i class="fa fa-arrow-left"></i>
+          </button>
+        </form>
       </div>
     </div>
   </div>
@@ -1119,6 +1516,70 @@
           <button onclick="checkout()" style="background: #ffbe33; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Checkout</button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- Terms Modal -->
+  <div id="termsModal" style="display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7);">
+    <div style="background: white; margin: 2% auto; padding: 20px; border-radius: 10px; width: 90%; max-width: 600px; max-height: 80%; overflow-y: auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2>Terms & Conditions</h2>
+        <span onclick="closeTermsModal()" style="font-size: 24px; cursor: pointer;">&times;</span>
+      </div>
+      <div id="termsContent" style="max-height: 400px; overflow-y: auto; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 20px;" onscroll="checkTermsScroll()">
+        <p><strong>Welcome to Foody!</strong></p>
+        <p>By using our service, you agree to these terms:</p>
+        <h4>1. Service Usage</h4>
+        <p>You must be 18+ to use our service. Provide accurate information during registration.</p>
+        <h4>2. Orders & Payment</h4>
+        <p>All orders are subject to availability. Payment must be completed before delivery.</p>
+        <h4>3. Delivery</h4>
+        <p>We aim to deliver within 30-45 minutes. Delivery times may vary based on location and weather.</p>
+        <h4>4. Cancellation</h4>
+        <p>Orders can be cancelled within 5 minutes of placement for full refund.</p>
+        <h4>5. Privacy</h4>
+        <p>We protect your personal information and use it only for service delivery.</p>
+        <h4>6. Liability</h4>
+        <p>Foody is not liable for any damages arising from service use.</p>
+        <p><strong>Last updated: December 2024</strong></p>
+      </div>
+      <div style="text-align: center;">
+        <button onclick="acceptTerms()" style="background: #ffbe33; color: white; border: none; padding: 12px 30px; border-radius: 5px; cursor: pointer; font-size: 16px;">I Have Read and Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Update Modal -->
+  <div id="profileModal" class="auth-modal">
+    <div class="auth-container">
+      <div class="auth-header">
+        <h2>Update Profile</h2>
+        <span onclick="closeProfileModal()" class="close-btn">&times;</span>
+      </div>
+      
+      <form onsubmit="return handleProfileUpdate(event)" class="form-content">
+        <div class="input-group">
+          <i class="fa fa-user input-icon"></i>
+          <input type="text" id="updateName" placeholder="Full Name" required>
+        </div>
+        
+        <div class="profile-upload">
+          <label>Profile Picture</label>
+          <div class="file-upload">
+            <input type="file" id="updateProfilePic" accept="image/*" onchange="previewUpdatePic(event)">
+            <div class="file-upload-btn" onclick="document.getElementById('updateProfilePic').click()">
+              <i class="fa fa-camera"></i>
+              <span>Change Photo</span>
+            </div>
+            <div id="updateProfilePreview" class="profile-preview"></div>
+          </div>
+        </div>
+        
+        <button type="submit" class="auth-btn" style="background: linear-gradient(135deg, #ffbe33, #ff9800);">
+          <span>Update Profile</span>
+          <i class="fa fa-save"></i>
+        </button>
+      </form>
     </div>
   </div>
 

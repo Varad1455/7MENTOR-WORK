@@ -77,13 +77,14 @@ $(".client_owl-carousel").owlCarousel({
 
 // Initialize EmailJS
 if (typeof emailjs !== 'undefined') {
-    emailjs.init('YOUR_PUBLIC_KEY');
+    emailjs.init('qJvN8vXHqB-mYGHyL');
 }
 
 // Cart functionality
 let cart = [];
 let isLoggedIn = false;
 let userProfilePic = null;
+let termsRead = false;
 
 function addToCart(name, price, image) {
     if (!checkAuth()) return;
@@ -229,12 +230,25 @@ function toggleLoginModal() {
     toggleAuthModal();
 }
 
+function showProfileUpload() {
+    const password = document.getElementById('loginPassword').value;
+    const profileUpload = document.getElementById('loginProfileUpload');
+    
+    if (password.length > 0) {
+        profileUpload.style.display = 'block';
+    } else {
+        profileUpload.style.display = 'none';
+    }
+}
+
 function previewProfilePic(event) {
     const file = event.target.files[0];
+    const preview = document.getElementById('profilePreview');
+    
     if (file) {
         const reader = new FileReader();
         reader.onload = function(e) {
-            userProfilePic = e.target.result;
+            preview.innerHTML = `<img src="${e.target.result}" alt="Profile Preview">`;
         };
         reader.readAsDataURL(file);
     }
@@ -244,6 +258,8 @@ function handleLogin(event) {
     event.preventDefault();
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
+    const rememberMe = document.getElementById('rememberMe').checked;
+    const profilePicFile = document.getElementById('profilePicInput').files[0];
     
     if (email && password) {
         // Check if user exists in localStorage
@@ -252,7 +268,31 @@ function handleLogin(event) {
             const userData = JSON.parse(storedUser);
             if (userData.email === email && userData.password === password) {
                 isLoggedIn = true;
-                userProfilePic = userData.profilePic;
+                
+                // Handle profile picture update
+                if (profilePicFile) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        userProfilePic = e.target.result;
+                        userData.profilePic = e.target.result;
+                        localStorage.setItem('foodyUser', JSON.stringify(userData));
+                        updateUserDisplay();
+                    };
+                    reader.readAsDataURL(profilePicFile);
+                } else {
+                    userProfilePic = userData.profilePic;
+                }
+                
+                // Handle remember me
+                if (rememberMe) {
+                    localStorage.setItem('foodyRememberMe', JSON.stringify({
+                        email: email,
+                        timestamp: Date.now()
+                    }));
+                } else {
+                    localStorage.removeItem('foodyRememberMe');
+                }
+                
                 localStorage.setItem('foodyLoginState', 'true');
                 updateUserDisplay();
                 showNotification(`Welcome back ${userData.name}!`, 'success');
@@ -262,6 +302,7 @@ function handleLogin(event) {
                 document.getElementById('loginEmail').value = '';
                 document.getElementById('loginPassword').value = '';
                 document.getElementById('profilePicInput').value = '';
+                document.getElementById('profilePreview').innerHTML = '';
                 return false;
             } else {
                 showNotification('Invalid email or password!', 'info');
@@ -275,6 +316,235 @@ function handleLogin(event) {
         }
     }
     return false;
+}
+
+function showForgotPassword() {
+    document.getElementById('loginForm').style.display = 'none';
+    document.getElementById('signupForm').style.display = 'none';
+    document.getElementById('forgotPasswordForm').style.display = 'block';
+    document.getElementById('authTitle').textContent = 'Reset Password';
+}
+
+function handleForgotPassword(event) {
+    event.preventDefault();
+    const email = document.getElementById('forgotEmail').value;
+    const submitBtn = event.target.querySelector('button[type="submit"]');
+    
+    const storedUser = localStorage.getItem('foodyUser');
+    if (!storedUser) {
+        showNotification('No account found with this email!', 'info');
+        return false;
+    }
+    
+    const userData = JSON.parse(storedUser);
+    if (userData.email !== email) {
+        showNotification('No account found with this email!', 'info');
+        return false;
+    }
+    
+    const resetCode = Math.floor(100000 + Math.random() * 900000).toString();
+    localStorage.setItem('foodyResetCode', resetCode);
+    localStorage.setItem('foodyResetEmail', email);
+    
+    submitBtn.innerHTML = '<span>Sending...</span><i class="fa fa-spinner fa-spin"></i>';
+    submitBtn.disabled = true;
+    
+    const maskedEmail = email.replace(/(.{2})(.*)(@.*)/, '$1***$3');
+    const maskedPhone = userData.phone.replace(/(.{2})(.*)(.{2})/, '$1***$3');
+    
+    setTimeout(() => {
+        const notification = document.createElement('div');
+        notification.innerHTML = `
+            <div style="text-align: center;">
+                <h4 style="margin: 0 0 10px 0; color: white;">✅ Verification Code Sent!</h4>
+                <p style="margin: 5px 0;">📧 Email: ${maskedEmail}</p>
+                <p style="margin: 5px 0;">📱 SMS: ${maskedPhone}</p>
+                <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 5px; margin-top: 10px;">
+                    <strong>Your Code: ${resetCode}</strong>
+                </div>
+            </div>
+        `;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 1001;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            max-width: 300px;
+            animation: slideIn 0.3s ease;
+        `;
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 8000);
+        
+        document.getElementById('forgotPasswordForm').style.display = 'none';
+        document.getElementById('resetPasswordForm').style.display = 'block';
+        document.getElementById('authTitle').textContent = 'Enter Verification Code';
+        submitBtn.innerHTML = '<span>Send Reset Code</span><i class="fa fa-paper-plane"></i>';
+        submitBtn.disabled = false;
+    }, 2000);
+    
+    return false;
+}
+
+function handleResetPassword(event) {
+    event.preventDefault();
+    
+    const enteredCode = document.getElementById('resetCode').value;
+    const newPassword = document.getElementById('newPassword').value;
+    const confirmPassword = document.getElementById('confirmNewPassword').value;
+    
+    const storedCode = localStorage.getItem('foodyResetCode');
+    const resetEmail = localStorage.getItem('foodyResetEmail');
+    
+    if (enteredCode !== storedCode) {
+        showNotification('Invalid code!', 'info');
+        return false;
+    }
+    
+    if (newPassword !== confirmPassword) {
+        showNotification('Passwords do not match!', 'info');
+        return false;
+    }
+    
+    const storedUser = localStorage.getItem('foodyUser');
+    if (storedUser) {
+        const userData = JSON.parse(storedUser);
+        if (userData.email === resetEmail) {
+            userData.password = newPassword;
+            localStorage.setItem('foodyUser', JSON.stringify(userData));
+            
+            localStorage.removeItem('foodyResetCode');
+            localStorage.removeItem('foodyResetEmail');
+            
+            showNotification('Password reset successfully!', 'success');
+            showLogin();
+            return false;
+        }
+    }
+    
+    return false;
+}
+
+function togglePassword(inputId) {
+    const input = document.getElementById(inputId);
+    const icon = input.nextElementSibling;
+    
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash');
+    } else {
+        input.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
+    }
+}
+
+function checkPasswordStrength(password) {
+    const indicator = document.getElementById('strengthIndicator');
+    const text = document.getElementById('strengthText');
+    
+    let strength = 0;
+    if (password.length >= 8) strength++;
+    if (/[a-z]/.test(password)) strength++;
+    if (/[A-Z]/.test(password)) strength++;
+    if (/[0-9]/.test(password)) strength++;
+    if (/[^A-Za-z0-9]/.test(password)) strength++;
+    
+    const percentage = (strength / 5) * 100;
+    indicator.style.width = percentage + '%';
+    
+    if (strength <= 1) {
+        indicator.style.background = '#ff4444';
+        text.textContent = 'Very Weak';
+    } else if (strength <= 2) {
+        indicator.style.background = '#ff8800';
+        text.textContent = 'Weak';
+    } else if (strength <= 3) {
+        indicator.style.background = '#ffbe33';
+        text.textContent = 'Fair';
+    } else if (strength <= 4) {
+        indicator.style.background = '#4CAF50';
+        text.textContent = 'Good';
+    } else {
+        indicator.style.background = '#2E7D32';
+        text.textContent = 'Very Strong';
+    }
+}
+
+function checkPasswordMatch() {
+    const password = document.getElementById('signupPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+    const indicator = document.getElementById('passwordMatch');
+    
+    if (confirmPassword === '') {
+        indicator.textContent = '';
+        return;
+    }
+    
+    if (password === confirmPassword) {
+        indicator.textContent = '✓';
+        indicator.style.color = '#4CAF50';
+    } else {
+        indicator.textContent = '✗';
+        indicator.style.color = '#ff4444';
+    }
+}
+
+function checkResetPasswordStrength(password) {
+    const indicator = document.getElementById('resetStrengthIndicator');
+    const text = document.getElementById('resetStrengthText');
+    
+    let strength = 0;
+    if (password.length >= 8) strength++;
+    if (/[a-z]/.test(password)) strength++;
+    if (/[A-Z]/.test(password)) strength++;
+    if (/[0-9]/.test(password)) strength++;
+    if (/[^A-Za-z0-9]/.test(password)) strength++;
+    
+    const percentage = (strength / 5) * 100;
+    indicator.style.width = percentage + '%';
+    
+    if (strength <= 1) {
+        indicator.style.background = '#ff4444';
+        text.textContent = 'Very Weak';
+    } else if (strength <= 2) {
+        indicator.style.background = '#ff8800';
+        text.textContent = 'Weak';
+    } else if (strength <= 3) {
+        indicator.style.background = '#ffbe33';
+        text.textContent = 'Fair';
+    } else if (strength <= 4) {
+        indicator.style.background = '#4CAF50';
+        text.textContent = 'Good';
+    } else {
+        indicator.style.background = '#2E7D32';
+        text.textContent = 'Very Strong';
+    }
+}
+
+function checkResetPasswordMatch() {
+    const password = document.getElementById('newPassword').value;
+    const confirmPassword = document.getElementById('confirmNewPassword').value;
+    const indicator = document.getElementById('resetPasswordMatch');
+    
+    if (confirmPassword === '') {
+        indicator.textContent = '';
+        return;
+    }
+    
+    if (password === confirmPassword) {
+        indicator.textContent = '✓';
+        indicator.style.color = '#4CAF50';
+    } else {
+        indicator.textContent = '✗';
+        indicator.style.color = '#ff4444';
+    }
 }
 
 function updateUserDisplay() {
@@ -292,23 +562,64 @@ function updateUserDisplay() {
     }
 }
 
-function showUserMenu() {
-    const choice = prompt('Select option:\n1. View Profile\n2. My Orders\n3. Settings\n4. Logout');
-    
-    switch(choice) {
-        case '1':
-            showNotification('Profile feature coming soon!', 'info');
-            break;
-        case '2':
-            showNotification('Orders feature coming soon!', 'info');
-            break;
-        case '3':
-            showNotification('Settings feature coming soon!', 'info');
-            break;
-        case '4':
-            logout();
-            break;
+function showProfileModal() {
+    const storedUser = localStorage.getItem('foodyUser');
+    if (storedUser) {
+        const userData = JSON.parse(storedUser);
+        document.getElementById('updateName').value = userData.name;
+        if (userData.profilePic) {
+            document.getElementById('updateProfilePreview').innerHTML = `<img src="${userData.profilePic}" alt="Current Profile">`;
+        }
     }
+    document.getElementById('profileModal').style.display = 'block';
+    document.getElementById('userDropdown').style.display = 'none';
+}
+
+function closeProfileModal() {
+    document.getElementById('profileModal').style.display = 'none';
+}
+
+function previewUpdatePic(event) {
+    const file = event.target.files[0];
+    const preview = document.getElementById('updateProfilePreview');
+    
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.innerHTML = `<img src="${e.target.result}" alt="Profile Preview">`;
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+function handleProfileUpdate(event) {
+    event.preventDefault();
+    const name = document.getElementById('updateName').value;
+    const profilePicFile = document.getElementById('updateProfilePic').files[0];
+    
+    const storedUser = localStorage.getItem('foodyUser');
+    if (storedUser) {
+        const userData = JSON.parse(storedUser);
+        userData.name = name;
+        
+        if (profilePicFile) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                userData.profilePic = e.target.result;
+                userProfilePic = e.target.result;
+                localStorage.setItem('foodyUser', JSON.stringify(userData));
+                updateUserDisplay();
+                showNotification('Profile updated successfully!', 'success');
+                closeProfileModal();
+            };
+            reader.readAsDataURL(profilePicFile);
+        } else {
+            localStorage.setItem('foodyUser', JSON.stringify(userData));
+            showNotification('Profile updated successfully!', 'success');
+            closeProfileModal();
+        }
+    }
+    return false;
 }
 
 function logout() {
@@ -338,6 +649,8 @@ function showSignup() {
 
 function showLogin() {
     document.getElementById('signupForm').style.display = 'none';
+    document.getElementById('forgotPasswordForm').style.display = 'none';
+    document.getElementById('resetPasswordForm').style.display = 'none';
     document.getElementById('loginForm').style.display = 'block';
     document.getElementById('authTitle').textContent = 'Login to Foody';
 }
@@ -360,6 +673,12 @@ function handleSignup(event) {
     const phone = document.getElementById('signupPhone').value;
     const password = document.getElementById('signupPassword').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
+    const agreeTerms = document.getElementById('agreeTerms').checked;
+    
+    if (!agreeTerms || !termsRead) {
+        alert('⚠️ You must read the Terms & Conditions before creating an account!\n\nPlease click on "Terms & Conditions" link to read them first.');
+        return false;
+    }
     
     if (password !== confirmPassword) {
         showNotification('Passwords do not match!', 'info');
@@ -390,8 +709,53 @@ function handleSignup(event) {
         document.getElementById('signupPassword').value = '';
         document.getElementById('confirmPassword').value = '';
         document.getElementById('signupProfilePic').value = '';
+        document.getElementById('agreeTerms').checked = false;
+        document.getElementById('agreeTerms').disabled = true;
     }
     return false;
+}
+
+function showTermsModal() {
+    document.getElementById('termsModal').style.display = 'block';
+}
+
+function closeTermsModal() {
+    document.getElementById('termsModal').style.display = 'none';
+}
+
+function checkTermsScroll() {
+    const termsContent = document.getElementById('termsContent');
+    const scrollTop = termsContent.scrollTop;
+    const scrollHeight = termsContent.scrollHeight;
+    const clientHeight = termsContent.clientHeight;
+    
+    if (scrollTop + clientHeight >= scrollHeight - 10) {
+        termsRead = true;
+        const acceptBtn = document.querySelector('#termsModal button');
+        acceptBtn.style.background = '#28a745';
+        acceptBtn.textContent = 'I Have Read and Accept';
+        acceptBtn.disabled = false;
+    }
+}
+
+function showTermsModal() {
+    termsRead = false;
+    const acceptBtn = document.querySelector('#termsModal button');
+    acceptBtn.style.background = '#6c757d';
+    acceptBtn.textContent = 'Please scroll to read all terms';
+    acceptBtn.disabled = true;
+    document.getElementById('termsModal').style.display = 'block';
+}
+
+function acceptTerms() {
+    if (!termsRead) {
+        alert('Please scroll down to read all terms first!');
+        return;
+    }
+    document.getElementById('agreeTerms').disabled = false;
+    document.getElementById('agreeTerms').checked = true;
+    closeTermsModal();
+    showNotification('Terms accepted! You can now create your account.', 'success');
 }
 
 function checkAuthAndRedirect(event) {
@@ -583,6 +947,24 @@ document.addEventListener('click', function(event) {
 function initializeLoginState() {
     const storedUser = localStorage.getItem('foodyUser');
     const loginState = localStorage.getItem('foodyLoginState');
+    
+    // Check remember me
+    const rememberMe = localStorage.getItem('foodyRememberMe');
+    if (rememberMe) {
+        const rememberData = JSON.parse(rememberMe);
+        const daysPassed = (Date.now() - rememberData.timestamp) / (1000 * 60 * 60 * 24);
+        
+        if (daysPassed < 30) {
+            setTimeout(() => {
+                const emailInput = document.getElementById('loginEmail');
+                const rememberCheckbox = document.getElementById('rememberMe');
+                if (emailInput) emailInput.value = rememberData.email;
+                if (rememberCheckbox) rememberCheckbox.checked = true;
+            }, 100);
+        } else {
+            localStorage.removeItem('foodyRememberMe');
+        }
+    }
     
     if (storedUser && loginState === 'true') {
         const userData = JSON.parse(storedUser);

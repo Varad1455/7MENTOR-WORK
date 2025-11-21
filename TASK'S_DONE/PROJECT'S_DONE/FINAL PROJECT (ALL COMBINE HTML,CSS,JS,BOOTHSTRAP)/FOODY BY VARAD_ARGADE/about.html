@@ -6,7 +6,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
   <!-- Site Metas -->
   <meta name="keywords" content="" />
   <meta name="description" content="" />
@@ -66,6 +66,24 @@
     .bounce-in.visible {
       opacity: 1;
       transform: scale(1);
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 190, 51, 0.7); }
+      70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 190, 51, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 190, 51, 0); }
+    }
+    
+    @keyframes bounce {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-3px); }
+    }
+    
+    .animated-enjoy-btn:hover, .animated-info-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 5px 15px rgba(255, 190, 51, 0.4);
+      text-decoration: none;
+      color: white;
     }
   </style>
 
@@ -159,8 +177,9 @@
                 </svg>
               </a>
 
-              <a href="/menu.html" class="order_online">
-                Let's Enjoy <b>FOODY</b>
+              <a href="menu.html" class="animated-enjoy-btn" style="position: relative; display: flex; align-items: center; gap: 8px; padding: 8px 15px; background: linear-gradient(135deg, #ffbe33, #ff9800); color: white; border-radius: 25px; text-decoration: none; transition: all 0.3s ease; animation: pulse 2s infinite;">
+                <i class="fa fa-heart" style="font-size: 16px; animation: bounce 1s ease-in-out infinite alternate;"></i>
+                <span style="font-size: 12px; font-weight: bold;">LET'S ENJOY FOODY</span>
               </a>
             </div>
           </div>
@@ -191,8 +210,9 @@
             <p class="fade-in">
               Welcome to Foody - India's premier food delivery platform that brings delicious, authentic flavors right to your doorstep. Founded with a passion for connecting food lovers with their favorite cuisines, we specialize in delivering fresh, hot meals from the best local restaurants across Pune and beyond. Our commitment to quality, affordability, and lightning-fast delivery has made us the trusted choice for thousands of satisfied customers. From traditional Indian delicacies to international favorites, Foody ensures every meal is a delightful experience that satisfies your cravings and exceeds your expectations.
             </p>
-            <a href="/menu.html" class="bounce-in">
-              Let's Enjoy <b>FOODY</b>
+            <a href="menu.html" class="animated-info-btn bounce-in" style="position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; background: linear-gradient(135deg, #ffbe33, #ff9800); color: white; border-radius: 25px; text-decoration: none; transition: all 0.3s ease; animation: pulse 2s infinite; margin-top: 20px;">
+              <i class="fa fa-info-circle" style="font-size: 18px; animation: bounce 1s ease-in-out infinite alternate;"></i>
+              <span style="font-size: 14px; font-weight: bold;">Let's Enjoy FOODY</span>
             </a>
           </div>
         </div>

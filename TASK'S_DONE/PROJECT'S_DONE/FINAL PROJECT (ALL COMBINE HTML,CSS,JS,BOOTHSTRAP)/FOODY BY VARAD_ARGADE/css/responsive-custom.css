@@ -1,0 +1,165 @@
+/* Disable zoom globally */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  
+  .navbar-brand span {
+    font-size: 1.3rem;
+  }
+  
+  .slider_section .detail-box h1 {
+    font-size: 1.6rem;
+    line-height: 1.3;
+  }
+  
+  .offer_section .box {
+    padding: 10px;
+    margin-top: 15px;
+  }
+  
+  .filters_menu li {
+    padding: 4px 8px;
+    font-size: 11px;
+    margin: 1px;
+  }
+  
+  .food_section .box .img-box {
+    height: 120px;
+    padding: 8px;
+  }
+  
+  .food_section .box .detail-box {
+    padding: 12px;
+  }
+  
+  .auth-container {
+    width: 98%;
+    margin: 1% auto;
+  }
+  
+  .form-content {
+    padding: 15px;
+  }
+}
+
+/* Modal responsiveness */
+@media (max-width: 576px) {
+  #cartModal > div {
+    width: 95%;
+    margin: 2% auto;
+    padding: 15px;
+  }
+  
+  .auth-container {
+    max-height: 95vh;
+  }
+}
+
+/* Better navbar on mobile */
+@media (max-width: 991px) {
+  .custom_nav-container .navbar-nav {
+    padding-left: 0;
+    text-align: center;
+  }
+  
+  .user_option {
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+  .navbar-brand span {
+    font-size: 1.1rem;
+  }
+  
+  .slider_section .detail-box h1 {
+    font-size: 1.4rem;
+  }
+  
+  .filters_menu li {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+  
+  .food_section .box .img-box {
+    height: 100px;
+  }
+}
+
+/* Mobile button alignment and touch-friendly */
+@media (max-width: 767px) {
+  .user_option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .user_option a,
+  .user_option button {
+    padding: 10px 15px;
+    font-size: 14px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .order_online {
+    padding: 8px 16px !important;
+    font-size: 12px;
+    min-height: 40px;
+    white-space: nowrap;
+  }
+  
+  .nav_search-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .cart_link {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .user_link {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Disable zoom and improve touch */
+* {
+  touch-action: manipulation;
+}
+
+input, textarea, select {
+  font-size: 16px !important;
+}
+
+@media (max-width: 480px) {
+  .user_option {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 10px 0;
+  }
+}
