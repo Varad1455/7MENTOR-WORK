@@ -29,94 +29,9 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
+  <link href="css/responsive-custom.css" rel="stylesheet" />
 
-  <style>
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .slide-left {
-      opacity: 0;
-      transform: translateX(-50px);
-      transition: all 0.8s ease;
-    }
-    .slide-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .slide-right {
-      opacity: 0;
-      transform: translateX(50px);
-      transition: all 0.8s ease;
-    }
-    .slide-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .bounce-in {
-      opacity: 0;
-      transform: scale(0.8);
-      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-    .bounce-in.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-    
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 190, 51, 0.7); }
-      70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 190, 51, 0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 190, 51, 0); }
-    }
-    
-    @keyframes bounce {
-      0% { transform: translateY(0px); }
-      100% { transform: translateY(-3px); }
-    }
-    
-    .animated-enjoy-btn:hover, .animated-info-btn:hover {
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 5px 15px rgba(255, 190, 51, 0.4);
-      text-decoration: none;
-      color: white;
-    }
-    
-    @keyframes logoGlow {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-    
-    @keyframes textShine {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    
-    @keyframes socialFloat {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-5px); }
-    }
-    
-    @keyframes socialBounce {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-    }
-    
-    .footer_social a:hover {
-      transform: translateY(-3px) scale(1.1);
-      color: #ffbe33;
-    }
-    
-    .footer-logo:hover {
-      transform: scale(1.1);
-      text-decoration: none;
-    }
-  </style>
+
 
 </head>
 
