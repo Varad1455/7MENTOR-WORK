@@ -85,6 +85,37 @@
       text-decoration: none;
       color: white;
     }
+    
+    @keyframes logoGlow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    @keyframes textShine {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes socialFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    @keyframes socialBounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    
+    .footer_social a:hover {
+      transform: translateY(-3px) scale(1.1);
+      color: #ffbe33;
+    }
+    
+    .footer-logo:hover {
+      transform: scale(1.1);
+      text-decoration: none;
+    }
   </style>
 
 </head>
@@ -261,21 +292,21 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
+            <a href="" class="footer-logo" style="display: inline-block; font-size: 2rem; font-weight: bold; background: linear-gradient(45deg, #ffbe33, #ff6b35, #ffbe33); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: logoGlow 3s ease-in-out infinite, textShine 2s linear infinite;">
               Foody
             </a>
             <p>
               India's premier food delivery platform bringing delicious meals to your doorstep. Quality food, affordable prices, and fast delivery across Pune and beyond.
             </p>
             <div class="footer_social">
-              <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
+              <a href="" style="display: inline-block; transition: all 0.3s ease; animation: socialFloat 3s ease-in-out infinite;">
+                <i class="fa fa-facebook" aria-hidden="true" style="animation: socialBounce 2s ease-in-out infinite;"></i>
               </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
+              <a href="" style="display: inline-block; transition: all 0.3s ease; animation: socialFloat 3s ease-in-out infinite 0.5s;">
+                <i class="fa fa-twitter" aria-hidden="true" style="animation: socialBounce 2s ease-in-out infinite 0.3s;"></i>
               </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
+              <a href="" style="display: inline-block; transition: all 0.3s ease; animation: socialFloat 3s ease-in-out infinite 1s;">
+                <i class="fa fa-instagram" aria-hidden="true" style="animation: socialBounce 2s ease-in-out infinite 0.6s;"></i>
               </a>
             </div>
           </div>

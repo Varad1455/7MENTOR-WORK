@@ -17,6 +17,37 @@
       border-radius: 10px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
+    
+    @keyframes logoGlow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    @keyframes textShine {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes socialFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    @keyframes socialBounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    
+    .footer_social a:hover {
+      transform: translateY(-3px) scale(1.1);
+      color: #ffbe33;
+    }
+    
+    .footer-logo:hover {
+      transform: scale(1.1);
+      text-decoration: none;
+    }
     .payment-method {
       border: 2px solid #ddd;
       border-radius: 8px;

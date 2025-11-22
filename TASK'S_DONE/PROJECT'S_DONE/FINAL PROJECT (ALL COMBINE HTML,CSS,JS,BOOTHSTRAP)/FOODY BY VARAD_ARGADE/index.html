@@ -189,6 +189,78 @@
       color: white;
     }
     
+    @keyframes logoGlow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    @keyframes socialFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    @keyframes socialBounce {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    
+    .footer_social a:hover {
+      transform: translateY(-3px) scale(1.1);
+      color: #ffbe33;
+    }
+    
+    .footer-logo:hover {
+      transform: scale(1.1);
+      text-decoration: none;
+    }
+    
+    @keyframes slideUp {
+      0% { transform: translateY(50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    
+    @keyframes fadeInUp {
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    
+    @keyframes profileFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    .client_section .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      border-color: #ffbe33;
+    }
+    
+    #userDropdown button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    
+    @media (max-width: 480px) {
+      #userDropdown {
+        right: 0 !important;
+        left: auto !important;
+        transform: translateX(-20px) !important;
+        min-width: 160px !important;
+        padding: 15px !important;
+      }
+      
+      #userDropdown button {
+        padding: 14px 18px !important;
+        font-size: 15px !important;
+        min-height: 48px !important;
+        margin-bottom: 10px !important;
+      }
+      
+      #userDropdown button:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+    
     /* Auth Modal Styles */
     .auth-modal {
       display: none;
@@ -466,16 +538,6 @@
               </li>
             </ul>
             <div class="user_option">
-              <div style="position: relative;">
-                <a href="#" class="user_link" onclick="handleUserClick()" style="position: relative;">
-                  <img id="profilePic" src="" alt="Profile" style="display: none; width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
-                  <i id="userIcon" class="fa fa-user" aria-hidden="true"></i>
-                </a>
-                <div id="userDropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid #ddd; border-radius: 5px; padding: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); min-width: 150px; z-index: 1000;">
-                  <button onclick="showProfileModal()" style="width: 100%; padding: 8px; background: #ffbe33; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 14px; margin-bottom: 5px;">Edit Profile</button>
-                  <button onclick="logout()" style="width: 100%; padding: 8px; background: #ff4444; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 14px;">Logout</button>
-                </div>
-              </div>
               <a class="cart_link" href="#" onclick="toggleCart()" style="position: relative;">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                   <g>
@@ -546,6 +608,22 @@
                 <i class="fa fa-cutlery" style="font-size: 16px; animation: bounce 1s ease-in-out infinite alternate;"></i>
                 <span style="font-size: 12px; font-weight: bold;">OUR MENU'S</span>
               </a>
+              <div style="position: relative;">
+                <a href="#" class="user_link" onclick="handleUserClick()" style="position: relative;">
+                  <img id="profilePic" src="" alt="Profile" style="display: none; width: 30px; height: 30px; border-radius: 50%; object-fit: cover;">
+                  <i id="userIcon" class="fa fa-user" aria-hidden="true"></i>
+                </a>
+                <div id="userDropdown" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid #ddd; border-radius: 8px; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); min-width: 160px; z-index: 1000; text-align: center;">
+                  <button onclick="showProfileModal()" style="width: 100%; padding: 12px 16px; background: linear-gradient(135deg, #ffbe33, #ff9800); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; margin: 0 auto 8px auto; display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; font-weight: 500; transition: all 0.3s ease;">
+                    <i class="fa fa-edit"></i>
+                    <span>Edit Profile</span>
+                  </button>
+                  <button onclick="logout()" style="width: 100%; padding: 12px 16px; background: linear-gradient(135deg, #ff4444, #cc3333); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; font-weight: 500; transition: all 0.3s ease;">
+                    <i class="fa fa-sign-out"></i>
+                    <span>Logout</span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </nav>
@@ -1097,102 +1175,138 @@
 
   <!-- client section -->
 
-  <section class="client_section layout_padding-bottom">
-    <div class="container">
-      <div class="heading_container heading_center psudo_white_primary mb_45">
-        <h2>
+  <section class="client_section layout_padding-bottom" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); position: relative; overflow: hidden;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="heading_container heading_center psudo_white_primary mb_45 fade-in">
+        <h2 style="background: linear-gradient(45deg, #ffbe33, #ff6b35); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: textShine 3s linear infinite; font-size: 2.5rem; margin-bottom: 30px;">
           What Says Our Customers
         </h2>
+        <div style="width: 100px; height: 4px; background: linear-gradient(45deg, #ffbe33, #ff6b35); margin: 0 auto; border-radius: 2px; animation: pulse 2s infinite;"></div>
       </div>
-      <div class="carousel-wrap row ">
-        <div class="owl-carousel client_owl-carousel">
+      <div class="carousel-wrap row" style="background: white; padding: 40px 20px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); animation: slideUp 1s ease-out; position: relative;">
+        <div class="owl-carousel client_owl-carousel" style="padding: 20px 0;">
           <div class="item">
-            <div class="box">
+            <div class="box" style="background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%); border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; animation: fadeInUp 0.8s ease-out; border: 2px solid transparent; background-clip: padding-box;">
               <div class="detail-box">
-                <p>
+                <p style="font-style: italic; color: #555; line-height: 1.6; margin-bottom: 20px; position: relative;">
+                  <i class="fa fa-quote-left" style="color: #ffbe33; font-size: 20px; margin-right: 10px;"></i>
                   Amazing food quality and super fast delivery! The pizza was hot and fresh when it arrived. Foody has become my go-to app for ordering food. Highly recommended!
+                  <i class="fa fa-quote-right" style="color: #ffbe33; font-size: 20px; margin-left: 10px;"></i>
                 </p>
-                <h6>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div style="color: #ffbe33; font-size: 18px;">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                </div>
+                <h6 style="color: #333; font-weight: bold; margin: 10px 0 5px 0;">
                   Priya Sharma
                 </h6>
-                <p>
-                  Mumbai
+                <p style="color: #666; font-size: 14px; margin: 0;">
+                  <i class="fa fa-map-marker" style="color: #ffbe33; margin-right: 5px;"></i>Mumbai
                 </p>
               </div>
-              <div class="img-box">
-                <img src="images/client.jpg" alt="" class="box-img">
+              <div class="img-box" style="position: relative;">
+                <img src="images/client.jpg" alt="" class="box-img" style="border-radius: 50%; border: 3px solid #ffbe33; animation: profileFloat 3s ease-in-out infinite;">
               </div>
             </div>
           </div>
           <div class="item">
-            <div class="box">
+            <div class="box" style="background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%); border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; animation: fadeInUp 0.8s ease-out 0.2s both; border: 2px solid transparent; background-clip: padding-box;">
               <div class="detail-box">
-                <p>
+                <p style="font-style: italic; color: #555; line-height: 1.6; margin-bottom: 20px; position: relative;">
+                  <i class="fa fa-quote-left" style="color: #ffbe33; font-size: 20px; margin-right: 10px;"></i>
                   Best food delivery service in the city! The burgers are delicious and prices are very reasonable. Customer service is excellent too. Will definitely order again!
+                  <i class="fa fa-quote-right" style="color: #ffbe33; font-size: 20px; margin-left: 10px;"></i>
                 </p>
-                <h6>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div style="color: #ffbe33; font-size: 18px;">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                </div>
+                <h6 style="color: #333; font-weight: bold; margin: 10px 0 5px 0;">
                   Rahul Patel
                 </h6>
-                <p>
-                  Delhi
+                <p style="color: #666; font-size: 14px; margin: 0;">
+                  <i class="fa fa-map-marker" style="color: #ffbe33; margin-right: 5px;"></i>Delhi
                 </p>
               </div>
-              <div class="img-box">
-                <img src="images/client.jpg" alt="" class="box-img">
+              <div class="img-box" style="position: relative;">
+                <img src="images/client.jpg" alt="" class="box-img" style="border-radius: 50%; border: 3px solid #ffbe33; animation: profileFloat 3s ease-in-out infinite 0.5s;">
               </div>
             </div>
           </div>
           <div class="item">
-            <div class="box">
+            <div class="box" style="background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%); border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; animation: fadeInUp 0.8s ease-out 0.4s both; border: 2px solid transparent; background-clip: padding-box;">
               <div class="detail-box">
-                <p>
+                <p style="font-style: italic; color: #555; line-height: 1.6; margin-bottom: 20px; position: relative;">
+                  <i class="fa fa-quote-left" style="color: #ffbe33; font-size: 20px; margin-right: 10px;"></i>
                   Foody never disappoints! The pasta was perfectly cooked and the French fries were crispy. Quick delivery and affordable prices make it my favorite food app.
+                  <i class="fa fa-quote-right" style="color: #ffbe33; font-size: 20px; margin-left: 10px;"></i>
                 </p>
-                <h6>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div style="color: #ffbe33; font-size: 18px;">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                </div>
+                <h6 style="color: #333; font-weight: bold; margin: 10px 0 5px 0;">
                   Anjali Singh
                 </h6>
-                <p>
-                  Bangalore
+                <p style="color: #666; font-size: 14px; margin: 0;">
+                  <i class="fa fa-map-marker" style="color: #ffbe33; margin-right: 5px;"></i>Bangalore
                 </p>
               </div>
-              <div class="img-box">
-                <img src="images/client.jpg" alt="" class="box-img">
+              <div class="img-box" style="position: relative;">
+                <img src="images/client.jpg" alt="" class="box-img" style="border-radius: 50%; border: 3px solid #ffbe33; animation: profileFloat 3s ease-in-out infinite 1s;">
               </div>
             </div>
           </div>
           <div class="item">
-            <div class="box">
+            <div class="box" style="background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%); border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; animation: fadeInUp 0.8s ease-out 0.6s both; border: 2px solid transparent; background-clip: padding-box;">
               <div class="detail-box">
-                <p>
+                <p style="font-style: italic; color: #555; line-height: 1.6; margin-bottom: 20px; position: relative;">
+                  <i class="fa fa-quote-left" style="color: #ffbe33; font-size: 20px; margin-right: 10px;"></i>
                   Outstanding service and taste! Ordered for my family dinner and everyone loved the food. The packaging was neat and delivery was on time. 5 stars!
+                  <i class="fa fa-quote-right" style="color: #ffbe33; font-size: 20px; margin-left: 10px;"></i>
                 </p>
-                <h6>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div style="color: #ffbe33; font-size: 18px;">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                </div>
+                <h6 style="color: #333; font-weight: bold; margin: 10px 0 5px 0;">
                   Arjun Kumar
                 </h6>
-                <p>
-                  Pune
+                <p style="color: #666; font-size: 14px; margin: 0;">
+                  <i class="fa fa-map-marker" style="color: #ffbe33; margin-right: 5px;"></i>Pune
                 </p>
               </div>
-              <div class="img-box">
-                <img src="images/client.jpg" alt="" class="box-img">
+              <div class="img-box" style="position: relative;">
+                <img src="images/client.jpg" alt="" class="box-img" style="border-radius: 50%; border: 3px solid #ffbe33; animation: profileFloat 3s ease-in-out infinite 1.5s;">
               </div>
             </div>
           </div>
           <div class="item">
-            <div class="box">
+            <div class="box" style="background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%); border-radius: 15px; padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; animation: fadeInUp 0.8s ease-out 0.8s both; border: 2px solid transparent; background-clip: padding-box;">
               <div class="detail-box">
-                <p>
+                <p style="font-style: italic; color: #555; line-height: 1.6; margin-bottom: 20px; position: relative;">
+                  <i class="fa fa-quote-left" style="color: #ffbe33; font-size: 20px; margin-right: 10px;"></i>
                   Foody has become my go-to food delivery app! The variety of cuisines and quick delivery makes it perfect for busy days. Highly satisfied with the quality and service.
+                  <i class="fa fa-quote-right" style="color: #ffbe33; font-size: 20px; margin-left: 10px;"></i>
                 </p>
-                <h6>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div style="color: #ffbe33; font-size: 18px;">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+                  </div>
+                </div>
+                <h6 style="color: #333; font-weight: bold; margin: 10px 0 5px 0;">
                   Sarvesh Joshi
                 </h6>
-                <p>
-                  Pune
+                <p style="color: #666; font-size: 14px; margin: 0;">
+                  <i class="fa fa-map-marker" style="color: #ffbe33; margin-right: 5px;"></i>Pune
                 </p>
               </div>
-              <div class="img-box">
-                <img src="images/client.jpg" alt="" class="box-img">
+              <div class="img-box" style="position: relative;">
+                <img src="images/client.jpg" alt="" class="box-img" style="border-radius: 50%; border: 3px solid #ffbe33; animation: profileFloat 3s ease-in-out infinite 2s;">
               </div>
             </div>
           </div>
@@ -1242,21 +1356,21 @@
         </div>
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
-            <a href="" class="footer-logo">
+            <a href="" class="footer-logo" style="display: inline-block; font-size: 2rem; font-weight: bold; background: linear-gradient(45deg, #ffbe33, #ff6b35, #ffbe33); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: logoGlow 3s ease-in-out infinite, textShine 2s linear infinite;">
               Foody
             </a>
             <p>
               India's premier food delivery platform bringing delicious meals to your doorstep. Quality food, affordable prices, and fast delivery across Pune and beyond.
             </p>
             <div class="footer_social">
-              <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
+              <a href="" style="display: inline-block; transition: all 0.3s ease; animation: socialFloat 3s ease-in-out infinite;">
+                <i class="fa fa-facebook" aria-hidden="true" style="animation: socialBounce 2s ease-in-out infinite;"></i>
               </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
+              <a href="" style="display: inline-block; transition: all 0.3s ease; animation: socialFloat 3s ease-in-out infinite 0.5s;">
+                <i class="fa fa-twitter" aria-hidden="true" style="animation: socialBounce 2s ease-in-out infinite 0.3s;"></i>
               </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
+              <a href="" style="display: inline-block; transition: all 0.3s ease; animation: socialFloat 3s ease-in-out infinite 1s;">
+                <i class="fa fa-instagram" aria-hidden="true" style="animation: socialBounce 2s ease-in-out infinite 0.6s;"></i>
               </a>
             </div>
           </div>

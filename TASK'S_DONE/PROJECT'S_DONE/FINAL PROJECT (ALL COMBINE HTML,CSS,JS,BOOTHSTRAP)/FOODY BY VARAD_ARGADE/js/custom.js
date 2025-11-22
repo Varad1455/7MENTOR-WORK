@@ -211,11 +211,23 @@ function handleUserClick() {
     }
 }
 
+let dropdownTimeout;
+
 function toggleUserDropdown() {
     const dropdown = document.getElementById('userDropdown');
     if (dropdown) {
         const isVisible = dropdown.style.display === 'block';
-        dropdown.style.display = isVisible ? 'none' : 'block';
+        
+        if (isVisible) {
+            dropdown.style.display = 'none';
+            clearTimeout(dropdownTimeout);
+        } else {
+            dropdown.style.display = 'block';
+            // Auto-hide after 3 seconds
+            dropdownTimeout = setTimeout(() => {
+                dropdown.style.display = 'none';
+            }, 3000);
+        }
     }
 }
 
@@ -638,6 +650,7 @@ function logout() {
     if (userDropdown) {
         userDropdown.style.display = 'none';
     }
+    clearTimeout(dropdownTimeout);
     showNotification('Logged out successfully', 'success');
 }
 
