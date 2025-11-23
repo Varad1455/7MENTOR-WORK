@@ -258,6 +258,20 @@ input, textarea, select {
   cursor: pointer;
 }
 
+@media (max-width: 480px) {
+  .search-dropdown {
+    right: 0 !important;
+    left: auto !important;
+    min-width: 250px !important;
+    max-width: calc(100vw - 40px) !important;
+    transform: translateX(-10px) translateY(-10px) !important;
+  }
+  
+  .search-dropdown.active {
+    transform: translateX(-10px) translateY(0) !important;
+  }
+}
+
 /* Order Online Button */
 .order_online {
   position: relative;
