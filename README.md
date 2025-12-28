@@ -1,106 +1,135 @@
-# 🚀 7MENTOR-WORK
 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+<h1 align="center">🚀 7MENTOR-WORK</h1>
 
-Welcome to my **7MENTOR-WORK** repository! This collection showcases the projects, assignments, and hands-on exercises completed during the **7Mentor Web Development Training Program**. It documents my journey of learning and applying web technologies to build functional and creative web applications.
+<p align="center">
+  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white"/>
+  <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
+  <img src="https://img.shields.io/badge/bootstrap-%237952B3.svg?style=for-the-badge&logo=bootstrap&logoColor=white"/>
+</p>
 
----
-
-## 📂 Projects Showcase
-
-Here are the key projects you'll find in this repository:
-
-### 1. Personal Portfolio Website
-- **Description:** A multi-page personal portfolio to showcase my skills, projects, and professional background. It includes Home, About, Projects, and Contact pages.
-- **Features:** Detailed sections for biography, skills, experience, and a contact form.
-- **Location:** `TASK'S_DONE/HTML PROJECT'S/PERSONAL_PORTFOLIO/`
-
-### 2. College Website
-- **Description:** A clean and structured website for a fictional engineering college ("Sunrise College of Engineering"). It provides information about departments, admission procedures, events, and contact details.
-- **Features:** Separate pages for different sections of the college, using tables for the fee structure and definition lists for departments.
-- **Location:** `TASK'S_DONE/HTML PROJECT'S/COLLAGE_WEBSITE/`
+<p align="center">
+  A creative playground of classwork, tasks, tests, and polished projects built during my 7Mentor Web Development journey.
+</p>
 
 ---
 
-## 🛠️ Tech Stack
-
-The projects in this repository are primarily built with fundamental web technologies, and my skills extend to modern frameworks and tools:
-
-- **Frontend:** HTML5, CSS3, JavaScript, React
-- **Backend:** Node.js, Express.js
-- **Databases:** MongoDB, Firebase
-- **Tools & Platforms:** Git, GitHub, VS Code, Figma
+## Table of Contents
+- ✨ What’s inside
+- 🧰 Tech Stack
+- 🗂️ Repository map
+- 🌟 Featured Projects
+- 🧭 Quick Start
+- 🖼️ Gallery
+- 👤 Author
 
 ---
 
-## 🗃️ Folder Structure
+## ✨ What’s inside
 
-The repository is organized as follows:
+- 🧩 Hands-on class exercises (day-wise) for HTML, CSS, JS, Bootstrap
+- 🧪 Test builds: Grand Palace Hotel, Pulse Fitness Website
+- 🚀 Final Project: FOODY BY VARAD_ARGADE
+- 🌐 Multiple standalone websites: Portfolio, College, Travel Agency, Online Course, News
+
+---
+
+## 🧰 Tech Stack
+
+- Frontend: HTML5, CSS3, JavaScript, Bootstrap 4/5
+- Tooling: Git, GitHub, VS Code
+
+---
+
+## 🗂️ Repository map
+
+<details>
+  <summary><strong>View structure</strong></summary>
 
 ```
 7MENTOR-WORK/
+├─ UI - [HTML, CSS, JS]/
+│  └─ (Standalone UI practice assets/pages)
 │
-├── TASK'S_DONE/
-│   └── HTML PROJECT'S/
-│       ├── PERSONAL_PORTFOLIO/
-│       └── COLLAGE_WEBSITE/
+├─ CLASS WORK/
+│  ├─ HTML/
+│  ├─ CSS/
+│  ├─ JAVASCRIPT/
+│  └─ BOOTSTRAP/
+│     └─ (Day-wise class files)
 │
-├── CLASS_ASSIGNMENTS/
-│   └── (Contains various practice files)
+├─ TASK'S_DONE/
+│  ├─ HTML TASK/
+│  ├─ CSS_TASK/
+│  ├─ BOOTSTRAP_TASK/
+│  └─ JAVASCRIPT_TASK/
+│     └─ (Multiple numbered assignment tasks)
 │
-├── MINI_PROJECTS/
-│   └── (Contains real-world web components)
+├─ PROJECT'S_DONE/
+│  ├─ HTML PROJECT'S/
+│  │  ├─ PERSONAL_PORTFOLIO/
+│  │  ├─ COLLAGE_WEBSITE/
+│  │  ├─ TRAVEL_AGENCY_WEBSITE/
+│  │  ├─ ONLINE_COURSE_WEBSITE/
+│  │  └─ NEW'S_WEBSITE/
+│  │
+│  ├─ CSS PROECT'S/
+│  │  └─ MY_PORTFOLIO/
+│  │
+│  ├─ BOOTHSTRAP/
+│  │  └─ MY_SAMPLEPAGE/
+│  │
+│  └─ FINAL PROJECT (ALL COMBINE HTML,CSS,JS,BOOTHSTRAP)/
+│     └─ FOODY BY VARAD_ARGADE/
 │
-└── README.md
+├─ TEST'S/
+│  └─ TEST_1/
+│     ├─ GRAND_PALACE_HOTEL/
+│     └─ PULSE-FITNESS_WEBSITE/
+│
+└─ README.md
 ```
 
----
-
-## 🚀 Getting Started
-
-To explore the projects locally, follow these steps:
-
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/Varad1455/7MENTOR-WORK.git
-    ```
-2.  **Navigate to a project directory.** For example, to see the portfolio:
-    ```bash
-    # Note: You may need to handle the spaces and apostrophe in the path depending on your shell.
-    cd "7MENTOR-WORK/TASK'S_DONE/HTML PROJECT'S/PERSONAL_PORTFOLIO"
-    ```
-3.  **Open the `.html` file** in your browser to view the project.
+</details>
 
 ---
 
-## 📸 Screenshots (Recommended)
+## 🌟 Featured Projects
 
-It's a great idea to add screenshots of your projects here to provide a quick visual preview.
+| Project | Stack | Info |
+| :-- | :--: | :-- |
+| FOODY BY VARAD_ARGADE (Final Project) | HTML, CSS, JS, Bootstrap | Capstone food website using HTML/CSS/JS/Bootstrap. Open: index.html |
+| Personal Portfolio | HTML, CSS | Multi-page personal portfolio. Open: index.html |
+| College Website | HTML, CSS | Department and admissions site. Open: home.html |
+| Grand Palace Hotel (Test) | HTML, CSS | Hotel landing and booking pages for test build. Open: index.html |
+| Pulse Fitness Website (Test) | HTML, CSS | Gym/fitness landing page for test build. Open: index.html |
+
 
 
 ---
 
-## 📸 Project Previews & Demos
+## 🧭 Quick Start
 
-It's a great idea to add screenshots and live demo links for your projects to provide a quick visual preview.
-
-
-| Project Name           | Preview                | Demo Link                                                                                             |
-| ---------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------- |
-| Personal Portfolio     | *(Your screenshot here)* | [View Live](https://varad1455.github.io/7MENTOR-WORK/TASK'S_DONE/PROJECT'S_DONE/HTML%20PROJECT'S/PERSONAL_PORTFOLIO/index.html) |
-| College Website        | *(Your screenshot here)* | [View Live](https://varad1455.github.io/7MENTOR-WORK/TASK'S_DONE/PROJECT'S_DONE/HTML%20PROJECT'S/COLLAGE_WEBSITE/home.html)       |
-
----
-
-## 👨‍💻 About The Author
-
-This repository is maintained by **Varad Argade** as part of the **7Mentor classroom activities**. It reflects my progress, learning, and skill-building journey in web development.
+- Clone
+  ```bash
+  git clone https://github.com/Varad1455/7MENTOR-WORK.git
+  ```
+- Run
+  - Open any folder and launch the main HTML file (usually `index.html`) in your browser.
 
 ---
 
-Feel free to connect or reach out for feedback and collaboration!
+## 🖼️ Gallery (optional)
 
-<p align="left">
+Drop screenshots or GIFs here to showcase your projects visually.
+
+---
+
+## 👤 Author
+
+Maintained by **Varad Argade** — continuously learning, building, and shipping. Feedback and collaboration are welcome.
+
+<p align="center">
   <a href="https://github.com/Varad1455" target="_blank"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
   <a href="https://www.linkedin.com/in/varad-argade" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
   <a href="mailto:argadevarad14@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
@@ -108,5 +137,5 @@ Feel free to connect or reach out for feedback and collaboration!
 
 ---
 
-> _“Learning never exhausts the mind, it only fuels creativity.”_ 🔥  
-> **Explore, Learn, Build & Share!**
+> “Learning never exhausts the mind, it only fuels creativity.” 🔥
+> Explore, Learn, Build & Share!
