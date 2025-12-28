@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            position: relative;
+            height: 300px;
+            width: 400px;
+            border:2px solid black;
+            margin:20px;
+        }
+
+        .box{
+            position: absolute;
+            color:aliceblue;
+            line-height: 100px;
+            font-weight: bold;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        .red{
+            z-index: 1;
+            background-color: red;
+            left: 40px;
+            top: 40px;
+        }
+
+        .green{
+            z-index: 2;
+            background-color: green;
+            left: 80px;
+            top: 80px;
+        }
+
+        .blue{
+            z-index: 3;
+            background-color: blue;
+            left: 120px;
+            top: 120px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Z-index Demo</h2>
+    <div class="container">
+        <div class="box red">z=1</div>
+        <div class="box green">z=2</div>
+        <div class="box blue">z=3</div>
+    </div>
+</body>
+</html>

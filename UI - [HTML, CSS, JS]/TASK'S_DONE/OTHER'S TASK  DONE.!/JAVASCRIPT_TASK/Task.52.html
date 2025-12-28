@@ -1,0 +1,22 @@
+<!-- Create an array for 5 elements and perform square of each element -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSK.52</title>
+</head>
+<body>
+    <script>
+        var numbers = [1, 2, 3, 4, 5];
+        document.write("Original Array: " + numbers + "<br><br>");
+        document.write("Array with Squares:<br>");
+
+        for (var i = 0; i < numbers.length; i++) {
+            var square = numbers[i] * numbers[i];
+            document.write("Square of " + numbers[i] + " is: " + square + "<br>");
+        }
+    </script>
+</body>
+</html>

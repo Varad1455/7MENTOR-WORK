@@ -1,0 +1,25 @@
+<!-- Wap to create a function arrow and check no is armstrong or not -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSK.36</title>
+</head>
+<body>
+    <script>
+        let num = prompt("Enter the number");
+        let sum = 0;
+        let temp = num;
+        while(temp > 0){
+            let rem = temp % 10;
+            sum += rem * rem * rem;
+            temp = parseInt(temp / 10);
+        }
+        if(sum == num)
+            document.write(num + " is an Armstrong Number");
+        else
+           document.write(num + " is not an Armstrong Number");
+    </script>
+</body>
+</html>

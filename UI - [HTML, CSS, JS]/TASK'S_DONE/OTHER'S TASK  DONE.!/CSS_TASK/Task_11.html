@@ -1,0 +1,43 @@
+<!-- Create a web page using box model add your name and course also add background color and margin padding -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Example</title>
+    <style>
+        body {
+            background-color: #b7e5ff; /* Light background for the whole page */
+            font-family: Arial, sans-serif;
+        }
+        .info-card {
+            /* Box Model Properties */
+            width: 400px; /* Width of the content area */
+            padding: 30px; /* Space between the content and the border */
+            border: 5px solid #0056b3; /* A solid border around the padding */
+            margin: 50px auto; /* Space outside the border (auto centers it horizontally) */
+
+            /* Other styling */
+            background-color: #00000049; /* Background color of the box */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        .info-card h1 {
+            color: #ffffff;
+            margin-top: 0;
+        }
+        .info-card p {
+            color: #0056b3;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="info-card">
+        <h1>VARAD ARGADE</h1>
+        <p><b>Course:</b> Web Development</p>
+    </div>
+</body>
+</html>

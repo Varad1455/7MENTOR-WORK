@@ -1,0 +1,289 @@
+<!-- 
+ *QUESTION:
+ Create a complete static webpage for "The Grand Palace Hotel".
+The page must include:
+A header with the hotel name and slogan.
+A hero section with a background image and welcome text.
+A room types section showing at least three room categories with name, short description, and pricing.
+A facilities section listing available amenities (like Wi-Fi, Pool, Spa, Parking) using styled boxes or icons.
+A customer review section with two reviews in separate boxes.
+A booking information section with.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME | GRAND_PALACE_HOTEL</title>
+</head>
+<body>
+    <style>
+        /* Basic Reset & Typography */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .main-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .main-header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: white;
+        }
+        .main-header .slogan {
+            margin: 5px 0 0;
+            font-style: italic;
+            color: #ecf0f1;
+        }
+
+        /* Navigation Bar */
+        .main-nav {
+            margin-top: 15px;
+        }
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .main-nav a:hover, .main-nav a.active {
+            background-color: #e67e22;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://wallpapercave.com/wp/wp8123174.jpg') no-repeat center center/cover;
+            height: 60vh;
+            text-align: center;
+            color: rgb(255, 255, 255);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .hero-text h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: white;
+            background-color: rgba(44, 62, 80, 0.496);
+            padding: 20px;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #ecf0f1;
+            background-color: rgba(44, 62, 80, 0.378);   
+            padding: 10px;
+            border-radius: 5px;
+            
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+        }
+        section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+        }
+
+        /* Room Types Section */
+        .room-types {
+            text-align: center;
+        }
+        .room-card {
+            background: white;
+            border: 1px solid #ddd;
+            width: 80%;
+            margin: 20px auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .room-card h3 {
+            color: #e67e22;
+        }
+        .room-card .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #27ae60;
+            margin-top: 15px;
+        }
+
+        /* Facilities Section */
+        .facilities-grid {
+            text-align: center;
+        }
+        .facility-box {
+            background: white;
+            border: 1px solid #ddd;
+            width: 50%;
+            margin: 10px auto;
+            padding: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Customer Reviews Section */
+        .review-box {
+            background: #eaf2f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .review-box blockquote {
+            margin: 0;
+            font-style: italic;
+        }
+        .review-box .reviewer {
+            text-align: right;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* Booking Section */
+        .booking-info {
+            text-align: center;
+            background-color: #ecf0f1;
+        }
+        .booking-info p {
+            font-size: 1.1rem;
+        }
+        .booking-info .book-now-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #e67e22;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /*Facilities Section*/
+        .facility-section {
+            background: white;
+            padding: 20px;
+            margin-top: 30px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        .submit-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }   
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+    <header class="main-header">
+        <h1>The Grand Palace Hotel</h1>
+        <p class="slogan">Experience Luxury Like Never Before</p>
+        <nav class="main-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="Facilities.html">Facilities</a>
+            <a href="Book_Now.html">Book Now</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Welcome to Unforgettable Comfort</h2>
+                <p>Your perfect getaway awaits at the heart of the city.</p>
+            </div>
+        </section>
+
+        <section id="rooms" class="container">
+            <h2>Our Rooms</h2>
+            <div class="room-types">
+                <article class="room-card">
+                    <h3>Deluxe Room</h3>
+                    <p>A perfect blend of comfort and style, our Deluxe Rooms offer a serene retreat with modern amenities.</p>
+                    <div class="price">$150 / Night Or Day<br> <i><b>For Combo Charges will Doubled</b></i></div>
+                </article>
+                <article class="room-card">
+                    <h3>Executive Suite</h3>
+                    <p>Spacious and elegant, the Executive Suite features a separate living area, ideal for business or leisure.</p>
+                    <div class="price">$250 / Night Or Day <br><i><b>For Combo Charges will Doubled</b></i></div>
+                </article>
+                <article class="room-card">
+                    <h3>Presidential Suite</h3>
+                    <p>The pinnacle of luxury, offering breathtaking views, a private jacuzzi, and unparalleled service.</p>
+                    <div class="price">$500 / Night or Day <br><i><b>For Combo Charges will Doubled</b></i></div>
+                </article>
+            </div>
+
+        </section>
+
+        <section id="facilities" style="background-color: #fff;">
+            <div class="container">
+                <h2>Our Facilities</h2>
+                <div class="facilities-grid">
+                    <div class="facility-box">Free Wi-Fi</div>
+                    <div class="facility-box">Swimming Pool</div>
+                    <div class="facility-box">Luxury Spa</div>
+                    <div class="facility-box">Secure Parking</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="container">
+            <h2>What Our Guests Say</h2>
+            <div class="review-box">
+                <blockquote>"An absolutely wonderful stay! The staff were incredibly attentive, and the room was immaculate. The pool is a must-visit. We will definitely be back!"</blockquote>
+                <p class="reviewer">- Sujay Bote</p>
+            </div>
+            <div class="review-box">
+                <blockquote>"The Grand Palace Hotel exceeded all our expectations. From the luxurious spa to the delicious food, every moment was perfect. Highly recommended for a relaxing escape."</blockquote>
+                <p class="reviewer">- Rushal Salunke</p>
+            </div>
+        </section>
+
+        <section id="booking" class="booking-info">
+            <div class="container">
+                <h2>Ready for Your Stay?</h2>
+                <p>Contact our reservation desk to book your room or for any inquiries.</p>
+                <p><strong>Phone:</strong> <a href="tel:+1234567890">(123) 456-7890</a> | <strong>Email:</strong> <a href="mailto:reservations@grandpalace.com">reservations@grandpalace.com</a></p>
+                <a href="Book_Now.html" class="book-now-btn">Book Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 The Grand Palace Hotel. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

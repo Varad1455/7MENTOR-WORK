@@ -1,0 +1,38 @@
+<!-- Js Program to perform on click event and double click event -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        text-align: center;
+        line-height: 200px;
+        font-size: 18px;
+        border-radius: 10px;
+        margin: 50px auto;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">Click</div>
+    <script>
+      const box = document.getElementById("box");
+
+      box.onclick = function () {
+        box.textContent = "button clicked";
+        box.style.backgroundColor = "red";
+      };
+
+      box.ondblclick = function () {
+        box.textContent = "double clicked";
+        box.style.backgroundColor = "orange";
+      };
+    </script>
+  </body>
+</html>

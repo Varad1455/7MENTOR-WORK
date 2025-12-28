@@ -1,0 +1,25 @@
+<!-- wap to caluclte S.I -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TSK.4</title>
+  </head>
+  <body>
+    <script>
+      const principal = 1500; // principal amount
+      const rateOfInterest = 5; // annual rate in percent
+      const timeInYears = 3; // time period in years
+
+      const simpleInterest = (principal * rateOfInterest * timeInYears) / 100;
+
+      document.write(`<h1>Simple Interest Calculation</h1>`);
+      document.write(`<p>Principal (P): ₹${principal}</p>`);
+      document.write(`<p>Rate (R): ${rateOfInterest}% per annum</p>`);
+      document.write(`<p>Time (T): ${timeInYears} years</p>`);
+      document.write(`<p><strong>Simple Interest (S.I): ₹${simpleInterest}</strong></p>`);
+    </script>
+  </body>
+</html>

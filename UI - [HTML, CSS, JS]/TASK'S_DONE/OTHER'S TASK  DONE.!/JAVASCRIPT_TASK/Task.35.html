@@ -1,0 +1,29 @@
+<!--  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSK.35</title>
+</head>
+<body>
+    
+<script>
+        // Function to sum the first and last digits of a three-digit number
+        function sumFirstLast(num) {
+            if (typeof num !== "number" || !Number.isFinite(num)) return NaN;
+            num = Math.trunc(Math.abs(num));
+            if (num < 100 || num > 999) return NaN; // enforce three-digit input
+            const first = Math.trunc(num / 100);
+            const last = num % 10;
+            return first + last;
+        }
+
+        // Print sample outputs using document.write
+        document.write("Number: 123 -> Sum of first and last digits: " + sumFirstLast(123) + "<br>");
+        document.write("Number: 907 -> Sum of first and last digits: " + sumFirstLast(907) + "<br>");
+        document.write("Number: 560 -> Sum of first and last digits: " + sumFirstLast(560));
+    </script>
+</body>
+</html>

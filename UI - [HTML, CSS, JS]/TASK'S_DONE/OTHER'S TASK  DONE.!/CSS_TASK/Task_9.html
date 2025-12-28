@@ -1,0 +1,58 @@
+<!-- Motivational Poster LayoutCreate a full-width section with a solid or gradient background.
+           BASIC POINT-OUT:
+               Center a motivational quote using <h2> and <p>.
+               Use large font size, bold text, and a contrasting color.
+               Add text-shadow to make the text pop.
+               Use text-align: center and vertical spacing
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivational Poster</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+        }
+        .motivational-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            /* Replaced gradient with an image and added a dark overlay for text readability */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .quote-container {
+            text-align: center; /* Center text */
+            color: #ffffff; /* Contrasting color */
+            max-width: 800px;
+        }
+        .quote-container h1 {
+            font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem); /* Responsive font size */
+            font-weight: 700; /* Bold text */
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.35); /* Add text-shadow to make the text pop */
+            margin: 0 0 25px 0; /* Reset default margin and add vertical spacing */
+            line-height: 1.2; /* Improve readability for wrapped text */
+        }
+        .quote-container p {
+            font-size: 1.5rem;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <section class="motivational-section">
+        <div class="quote-container">
+            <h1>Believe you can and you're halfway there.</h1>
+            <p>- Theodore Roosevelt</p>
+        </div>
+    </section>
+</body>
+</html>

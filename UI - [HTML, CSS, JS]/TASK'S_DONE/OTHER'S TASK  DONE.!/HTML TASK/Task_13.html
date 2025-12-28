@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HTML Only Example</title>
+</head>
+<body>
+  
+  <h2>🔸 Login Form</h2>
+  <form action="/login" method="post">
+    <label for="login-username">Username:</label><br>
+    <input type="text" id="login-username" name="username" required><br><br>
+
+    <label for="login-password">Password:</label><br>
+    <input type="password" id="login-password" name="password" required><br><br>
+
+    <input type="submit" value="Login">
+  </form>
+
+  <hr>
+
+  <h2>🔸 Sign-Up Form</h2>
+  <form action="/signup" method="post">
+    <label for="fullname">Full Name:</label><br>
+    <input type="text" id="fullname" name="fullname" required><br><br>
+
+    <label for="signup-email">Email:</label><br>
+    <input type="email" id="signup-email" name="email" required><br><br>
+
+    <label for="signup-password">Password:</label><br>
+    <input type="password" id="signup-password" name="password" required><br><br>
+
+    <label for="confirm-password">Confirm Password:</label><br>
+    <input type="password" id="confirm-password" name="confirm_password" required><br><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" id="male" name="gender" value="Male" required>
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" name="gender" value="Female">
+    <label for="female">Female</label><br>
+    <input type="radio" id="other" name="gender" value="Other">
+    <label for="other">Other</label><br><br>
+
+    <input type="checkbox" id="terms" name="terms" required>
+    <label for="terms">I agree to the Terms & Conditions</label><br><br>
+
+    <input type="submit" value="Sign Up">
+  </form>
+</body>
+</html>

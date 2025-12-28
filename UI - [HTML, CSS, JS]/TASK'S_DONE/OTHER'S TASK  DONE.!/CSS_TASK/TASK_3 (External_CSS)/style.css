@@ -1,0 +1,17 @@
+/* CSS File for Birthday Invitation Page {Task 3} */
+body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #3300ff;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p {
+            font-size: 16px;
+        }

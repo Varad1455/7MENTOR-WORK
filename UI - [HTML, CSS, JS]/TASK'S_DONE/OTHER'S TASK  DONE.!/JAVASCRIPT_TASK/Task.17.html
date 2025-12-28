@@ -1,0 +1,31 @@
+<!-- wap to perfrom square of even nos between 1-100 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSK.17</title>
+</head>
+<body>
+    <script>
+        // squares of even numbers from 1 to 100
+        var num = 1; // start from 1
+
+        // Loop through numbers 1 to 100
+        while (num <= 100) {
+            // Check if the number is even
+            if (num % 2 == 0) {
+                // Calculate square using simple multiplication
+                var square = num * num;
+
+                // Print in an easy-to-read format
+                document.write("Number: " + num + " | Square: " + square + "<br>");
+            }
+
+            // Move to the next number
+            num = num + 1;
+        }
+    </script>
+</body>
+</html>

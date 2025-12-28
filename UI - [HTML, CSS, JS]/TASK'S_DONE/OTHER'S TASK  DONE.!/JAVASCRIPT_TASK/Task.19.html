@@ -1,0 +1,74 @@
+<!--
+WAP 1: Check if a number is palindrome or not
+WAP 2: Perform addition of numbers until a negative number is typed
+(Simple JavaScript using prompt/alert)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TSK.19</title>
+</head>
+<body>
+  <script>
+    // Task 1: Palindrome check (non-negative integers)
+    (function () {
+      const input = prompt("Task 1: Check palindrome\nEnter a non-negative integer:");
+
+      if (input === null || input.trim() === "") {
+        alert("No input provided for Task 1.");
+        return;
+      }
+
+      const n = Number(input);
+
+      if (!Number.isInteger(n) || n < 0) {
+        alert("Please enter a valid non-negative integer.");
+        return;
+      }
+
+      // Numeric reversal method
+      let x = n;
+      let rev = 0;
+      while (x > 0) {
+        rev = rev * 10 + (x % 10);
+        x = Math.trunc(x / 10);
+      }
+
+      if (rev === n) {
+        alert(n + " is a palindrome.");
+      } else {
+        alert(n + " is not a palindrome.");
+      }
+    })();
+
+    // Task 2: Sum numbers until a negative number is entered
+    (function () {
+      let sum = 0;
+      while (true) {
+        const inp = prompt("Task 2: Addition until negative\nEnter a number (negative to stop):");
+
+        if (inp === null) {
+          // If user cancels, stop and show current sum
+          break;
+        }
+
+        const val = Number(inp);
+        if (Number.isNaN(val)) {
+          alert("Please enter a valid number.");
+          continue;
+        }
+
+        if (val < 0) {
+          break;
+        }
+
+        sum += val;
+      }
+
+      alert("Sum of entered non-negative numbers: " + sum);
+    })();
+  </script>
+</body>
+</html>

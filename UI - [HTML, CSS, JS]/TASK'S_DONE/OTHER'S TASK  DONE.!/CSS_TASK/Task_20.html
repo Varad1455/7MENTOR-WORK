@@ -1,0 +1,130 @@
+ <!--
+ Pricing Table
+ Make a three-column pricing table:
+ Use flex-direction: row.
+ Highlight the middle column with z-index (to pop out).
+ Use border-radius on corners.
+ -->
+ 
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Table</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Overall page background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Make sure it covers the entire viewport height */
+        }
+
+        .pricing-table {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px; /* Limit the maximum width of the table */
+            margin: 20px auto; /* Center the table horizontally */
+            background-color: #f0f0f0; /* Light gray background */
+        }
+
+        .pricing-column {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            border-radius: 10px;
+            width: 300px; /* Fixed width for all columns */
+        }
+
+        .pricing-column:nth-child(2) {
+            z-index: 1;
+            transform: scale(1.1); /* Slightly larger */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
+        }
+
+        .price {
+            font-size: 2em;
+            /* Make text transparent so background shows through */
+            color: transparent;
+
+            font-weight: bold;
+            /* Apply the red-orange gradient to the text */
+            background-image: linear-gradient(to right, red, orange);
+            background-clip: text; /* Clip the background to the text */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 5px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+
+            background: linear-gradient(to right, #007bff, #0056b3);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+ </head>
+ <body>
+    <div class="pricing-table">
+        <div class="pricing-column">
+            <h2>Basic</h2>
+            <div class="price">₹750/month</div>
+            <ul>
+                <li>1 User</li>
+                <li>5 GB Storage</li>
+                <li>Basic Support</li>
+                <li>Limited Features</li>
+                <li>1 Project</li>
+
+            </ul>
+            <a href="#" class="btn">Sign Up</a>
+        </div>
+
+        <div class="pricing-column">
+            <h2>Pro</h2>
+            <div class="price">₹1,500/month</div>
+            <ul>
+                <li>5 Users</li>
+                <li>50 GB Storage</li>
+                <li>Priority Support</li>
+                <li>Advanced Features</li>
+                <li>Unlimited Projects</li>
+
+            </ul>
+            <a href="#" class="btn">Sign Up</a>
+        </div>
+
+        <div class="pricing-column">
+            <h2>Enterprise</h2>
+            <div class="price">₹2,200/month</div>
+            <ul>
+                <li>Unlimited Users</li>
+                <li>1 TB Storage</li>
+                <li>24/7 Support</li>
+                <li>Full Access</li>
+                <li>Custom Integrations</li>
+                <li>Dedicated Account Manager</li>
+
+            </ul>
+            <a href="#" class="btn">Sign Up</a>
+        </div>
+    </div>
+ </body>
+ </html>

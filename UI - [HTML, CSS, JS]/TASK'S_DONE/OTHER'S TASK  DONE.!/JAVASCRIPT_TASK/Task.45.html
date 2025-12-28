@@ -1,0 +1,28 @@
+<!-- Create a <p> with number “5”.
+When you click a button, use getElementById() to read the number, double it, and display the result in the same paragraph using innerHTML. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSK.45</title>
+</head>
+<body>
+    <p id="number">5</p>
+    <button id="doubleButton">Double the Number</button>
+
+    <script>
+        document.getElementById('doubleButton').addEventListener('click', function() {
+            // Get the paragraph element
+            var paragraph = document.getElementById('number');
+            // Read the number from the paragraph
+            var number = parseInt(paragraph.innerHTML);
+            // Double the number
+            var doubledNumber = number * 2;
+            // Display the result in the same paragraph
+            paragraph.innerHTML = doubledNumber;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!--
+Create Pricing Table
+Create a 3-column pricing table using Flexbox.
+Each column should have a title, price, and list of features.
+The middle column should be slightly larger than the others.  
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_15</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .pricing-table {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #929292a8;
+        }
+        .pricing-column {
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            background-color: #fff;
+            flex: 1;
+        }
+
+        .pricing-column:hover {
+            box-shadow: 0 0 10px #ff0000;
+            background-color: #ffffffd2;
+            transition: box-shadow 0.8s ease;
+        }
+        .pricing-column.middle {
+            flex: 1.5;
+        }
+        .pricing-column h2 {
+            text-align: center;
+        }
+        .pricing-column p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <section class="pricing-table">
+        <div class="pricing-column">
+            <h2>Basic</h2>
+            <p>Price: $10/month</p>
+            <ul>
+                <li>Feature 1</li>
+                <li>Feature 2</li>
+                <li>Feature 3</li>
+            </ul>
+        </div>
+        <div class="pricing-column middle">
+            <h2>Standard</h2>
+            <p>Price: $20/month</p>
+            <ul>
+                <li>Feature 1</li>
+                <li>Feature 2</li>
+                <li>Feature 3</li>
+                <li>Feature 4</li>
+            </ul>
+        </div>
+        <div class="pricing-column">
+            <h2>Premium</h2>
+            <p>Price: $30/month</p>
+            <ul>
+                <li>Feature 1</li>
+                <li>Feature 2</li>
+                <li>Feature 3</li>
+                <li>Feature 4</li>
+                <li>Feature 5</li>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!--
+WAP: Check if a given number is Armstrong or not (proper, JS-only, with comments)
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TSK.20</title>
+</head>
+<body>
+  <script>
+    // Returns true if value is a non-negative integer, false otherwise
+    function isNonNegativeInteger(value) {
+      return Number.isInteger(value) && value >= 0;
+    }
+
+    // Keep prompting the user for a non-negative integer until:
+    // - valid input is provided (returns the number), or
+    // - the user cancels (returns null)
+    function promptNonNegativeInteger(message) {
+      while (true) {
+        const input = prompt(message);
+        if (input === null) {
+          // User cancelled the prompt
+          return null;
+        }
+
+        const trimmed = input.trim();
+        if (trimmed === "") {
+          alert("Please enter a value.");
+          continue;
+        }
+
+        const n = Number(trimmed);
+        if (isNonNegativeInteger(n)) {
+          return n; // valid non-negative integer
+        }
+
+        alert("Enter a valid non-negative integer (e.g., 0, 5, 153, 9474).");
+      }
+    }
+
+    // Check if n is an Armstrong number.
+    // Returns an object with details to help display a clear explanation.
+    function checkArmstrong(n) {
+      // Convert number to its digits (as numbers). For example, 153 -> [1, 5, 3]
+      const digits = String(n).split("").map(function (ch) { return Number(ch); });
+      const power = digits.length; // number of digits
+
+      // Compute sum of each digit raised to the power of the number of digits
+      let sum = 0;
+      for (let i = 0; i < digits.length; i++) {
+        sum += Math.pow(digits[i], power);
+      }
+
+      return {
+        isArmstrong: sum === n,
+        digits: digits,
+        power: power,
+        sum: sum,
+      };
+    }
+
+    // Main flow: prompt user, validate, compute, and show detailed result
+    (function main() {
+      const n = promptNonNegativeInteger("Enter a non-negative integer to check if it's an Armstrong number:");
+
+      if (n === null) {
+        alert("Input cancelled.");
+        return;
+      }
+
+      const result = checkArmstrong(n);
+
+      // Build a readable expression like: 1^3 + 5^3 + 3^3 = 153
+      const expression = result.digits.map(function (d) { return d + "^" + result.power; }).join(" + ");
+
+      const message =
+        n + " -> " + expression + " = " + result.sum +
+        "\nResult: " + n + (result.isArmstrong ? " is" : " is not") + " an Armstrong number.";
+
+      alert(message);
+    })();
+  </script>
+</body>
+</html>

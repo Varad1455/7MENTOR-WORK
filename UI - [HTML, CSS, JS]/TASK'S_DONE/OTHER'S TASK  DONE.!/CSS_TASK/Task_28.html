@@ -1,0 +1,60 @@
+<!-- 
+ Make a bouncing ball effect using CSS animation.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball Animation</title>
+    <style>
+      body {
+        /* Center the animation on the page */
+        display: flex;
+        justify-content: center;
+        align-items: flex-end; /* Align to the bottom */
+        min-height: 100vh;
+        background-color: #f0f0f0;
+        margin: 0;
+      }
+
+      .bouncing-area {
+        width: 200px;
+        height: 400px;
+        border-bottom: 10px solid #333; /* The "floor" */
+      }
+
+      .ball {
+        width: 60px;
+        height: 60px;
+        background-color: tomato;
+        border-radius: 50%; /* Makes the div a circle */
+        
+        /* Animation properties */
+        animation-name: bounce;
+        animation-duration: 0.8s;
+        animation-timing-function: ease-in; /* Accelerates downwards */
+        animation-iteration-count: infinite;
+        animation-direction: alternate; /* Bounces back up */
+      }
+
+      /* Define the bounce animation */
+      @keyframes bounce {
+        from {
+          /* Start from the top, no vertical translation */
+          transform: translateY(0);
+        }
+        to {
+          /* Move down by the height of the area minus the ball's height */
+          transform: translateY(calc(400px - 60px));
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="bouncing-area">
+        <div class="ball"></div>
+    </div>
+</body>
+</html>

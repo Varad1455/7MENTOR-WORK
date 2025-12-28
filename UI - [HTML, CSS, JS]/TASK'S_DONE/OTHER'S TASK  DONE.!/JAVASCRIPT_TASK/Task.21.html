@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSK.21</title>
+</head>
+<body>
+    <script>
+        // find the largest number between three numbers.
+        var n1=11,n2=22,n3=4;
+        if(n1>=n2 && n1>=n3){
+            document.writeln("n1 is the gretter than n2 and n3");
+        }
+        else if(n2>=n3 && n3<=n1){
+            document.writeln("n2 is the gretter than n1 and n3");
+        }
+        else{
+            document.writeln("n3 is the gretter than n1 and n2");
+        }
+
+        var no=50;
+        for(var i=1;i<=no;i++){
+            if(i%3==0 && i%5==0){
+                document.writeln("number is divisible by 3 and 5 = " + i + "<br>");
+            }
+            else{
+                document.write("number is not divisible by 3 and 5 = " + i + "<br>");
+            }
+        }
+    </script>
+</body>
+</html>

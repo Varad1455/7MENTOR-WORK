@@ -1,0 +1,22 @@
+<!-- Create a button that, when clicked, displays the message “Background changed!” inside a <p> tag and changes the background color using JS. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSK.50</title>
+</head>
+<body>
+
+    <h1>TASK.50 : Create a button that, when clicked, displays the message “Background changed!” inside a <p> tag and changes the background color using JS.</h1>
+    <button onclick="changeBackground()">Change Background</button>
+    <p id="message"></p>
+    <script>
+        function changeBackground() {
+            document.body.style.backgroundColor = "#E4080A"; // Change to Red
+            document.getElementById("message").innerText = "Background changed!";
+        }
+    </script>
+</body>
+</html>
